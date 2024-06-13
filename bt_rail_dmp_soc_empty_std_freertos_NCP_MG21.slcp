@@ -38,10 +38,19 @@ component:
 - {id: EFR32MG21A020F1024IM32}
 - {id: app_assert}
 - {id: bluetooth_feature_connection}
+- {id: bluetooth_feature_dynamic_gattdb}
+- {id: bluetooth_feature_extended_advertiser}
+- {id: bluetooth_feature_extended_scanner}
+- {id: bluetooth_feature_gap}
+- {id: bluetooth_feature_gatt}
 - {id: bluetooth_feature_gatt_server}
 - {id: bluetooth_feature_legacy_advertiser}
+- {id: bluetooth_feature_legacy_scanner}
+- {id: bluetooth_feature_periodic_advertiser}
 - {id: bluetooth_feature_sm}
+- {id: bluetooth_feature_sync}
 - {id: bluetooth_feature_system}
+- {id: bluetooth_feature_test}
 - {id: bluetooth_stack}
 - {id: bootloader_interface}
 - {id: brd4002a}
@@ -52,11 +61,14 @@ component:
 - {id: freertos}
 - {id: gatt_configuration}
 - {id: gatt_service_device_information}
-- instance: [vcom]
-  id: iostream_usart
+- {id: iostream_rtt}
 - {id: mpu}
+- {id: ncp}
+- {id: ncp_user_cmd}
 - {id: rail_lib_multiprotocol}
 - {id: sl_flex_rail_802154_support}
+- instance: [vcom]
+  id: uartdrv_usart
 other_file:
 - {path: image/readme_img0.png}
 - {path: image/readme_img1.png}
