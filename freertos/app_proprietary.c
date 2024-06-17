@@ -47,6 +47,9 @@
 #include "sl_flex_util_ble_init.h"
 #else
 #endif
+
+#include "sl_ncp.h"
+
 // -----------------------------------------------------------------------------
 // Constant definitions and macros
 #ifdef SL_CATALOG_FLEX_BLE_SUPPORT_PRESENT
@@ -68,6 +71,10 @@ TaskHandle_t app_proprietary_task_handle;
 /// OS event group to prevent cyclic execution of the task main loop.
 EventGroupHandle_t app_proprietary_event_group_handle;
 StaticEventGroup_t app_proprietary_event_group_buffer;
+
+static uint8_t rxData[SL_FLEX_RAIL_FRAME_MAX_SIZE];
+
+static uint8_t wakeOnRFData[1] = {0xAB};
 
 /**************************************************************************//**
  * Proprietary application task.
@@ -139,16 +146,21 @@ static void app_proprietary_task(void *p_arg)
   //                   Proprietary Protocols on RAIL in GSDK v2.x            //
   /////////////////////////////////////////////////////////////////////////////
 
-/*
+
    RAIL_Handle_t rail_handle;
    RAIL_Status_t status;
+   RAIL_SchedulerInfo_t schedulerInfo;
+
+   // Only set priority because transactionTime is meaningless for infinite
+   // operations and slipTime has a reasonable default for relative operations.
+   schedulerInfo = (RAIL_SchedulerInfo_t){ .priority = 200 };
 
    rail_handle = sl_flex_util_get_handle();
  #ifdef SL_CATALOG_FLEX_IEEE802154_SUPPORT_PRESENT
    // init the selected protocol for IEEE, first
    sl_flex_ieee802154_protocol_init(rail_handle, SL_FLEX_UTIL_INIT_PROTOCOL_INSTANCE_DEFAULT);
    // Start reception.
-   status = RAIL_StartRx(rail_handle, sl_flex_ieee802154_get_channel(), NULL);
+   status = RAIL_StartRx(rail_handle, sl_flex_ieee802154_get_channel(), (const RAIL_SchedulerInfo_t *)&schedulerInfo);
  #elif defined SL_CATALOG_FLEX_BLE_SUPPORT_PRESENT
    status = RAIL_StartRx(rail_handle, BLE_CHANNEL, NULL);
  #else
@@ -156,7 +168,6 @@ static void app_proprietary_task(void *p_arg)
    app_assert(status == RAIL_STATUS_NO_ERROR,
              "[E: 0x%04x] Failed to start RAIL reception" APP_LOG_NEW_LINE,
              (int)status);
- */
 
   // Start task main loop.
   while (1) {
@@ -174,6 +185,10 @@ static void app_proprietary_task(void *p_arg)
     // Put your additional application code here!                            //
     // This is called when the event flag APP_PROPRIETARY_EVENT_FLAG is set  //
     ///////////////////////////////////////////////////////////////////////////
+
+    app_log("Processing 15.4 RX packet\n");
+    // see test_timer_callback
+    sl_ncp_user_evt_message_to_host(sizeof(wakeOnRFData), wakeOnRFData);
   }
 }
 
@@ -184,8 +199,14 @@ static void app_proprietary_task(void *p_arg)
 void sl_rail_util_on_event(RAIL_Handle_t rail_handle,
                            RAIL_Events_t events)
 {
-  (void)rail_handle;
+  //(void)rail_handle;
   (void)events;
+
+  RAIL_RxPacketDetails_t rxDetails;
+  RAIL_RxPacketHandle_t packetHandle;
+  RAIL_RxPacketInfo_t packetInfo;
+  RAIL_Status_t rxStatus;
+  BaseType_t xHigherPriorityTaskWoken, xResult;
 
   /////////////////////////////////////////////////////////////////////////////
   // Add event handlers here as your application requires!                   //
@@ -193,4 +214,44 @@ void sl_rail_util_on_event(RAIL_Handle_t rail_handle,
   // Flex (RAIL) - Simple TRX Standards might serve as a good example on how //
   // to implement this event handler properly.                               //
   /////////////////////////////////////////////////////////////////////////////
+  ///
+
+  if(events & RAIL_EVENT_RX_PACKET_RECEIVED)
+  {
+    // Parse 802.15.4 packets
+    app_log("15.4 RX packet received\n");
+    packetHandle = RAIL_GetRxPacketInfo(rail_handle, RAIL_RX_PACKET_HANDLE_NEWEST, &packetInfo);
+    if ( packetHandle != RAIL_RX_PACKET_HANDLE_INVALID ){
+      RAIL_CopyRxPacket(rxData, &packetInfo);
+      rxStatus = RAIL_GetRxPacketDetails(rail_handle, packetHandle, &rxDetails);
+      RAIL_ReleaseRxPacket(rail_handle, packetHandle);
+
+        /* xHigherPriorityTaskWoken must be initialised to pdFALSE. */
+        xHigherPriorityTaskWoken = pdFALSE;
+
+        /* Set bit 0 and bit 4 in xEventGroup. */
+        xResult = xEventGroupSetBitsFromISR(
+                                    app_proprietary_event_group_handle,   /* The event group being updated. */
+                                    APP_PROPRIETARY_EVENT_FLAG, /* The bits being set. */
+                                    &xHigherPriorityTaskWoken );
+
+        /* Was the message posted successfully? */
+        if( xResult != pdFAIL )
+        {
+            /* If xHigherPriorityTaskWoken is now set to pdTRUE then a context
+            switch should be requested.  The macro used is port specific and will
+            be either portYIELD_FROM_ISR() or portEND_SWITCHING_ISR() - refer to
+            the documentation page for the port being used. */
+            portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+        }
+
+    }
+  }
+
+  if (events & (RAIL_EVENT_TX_PACKET_SENT
+                | RAIL_EVENT_TX_ABORTED
+                | RAIL_EVENT_TX_UNDERFLOW
+                | RAIL_EVENT_SCHEDULER_STATUS)) {
+    RAIL_YieldRadio(rail_handle);// Unnecessary to yield upon RX, according to RAIL MultiProtocol docs. We do it only here
+  }
 }
