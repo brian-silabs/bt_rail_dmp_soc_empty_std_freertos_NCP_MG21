@@ -49,6 +49,7 @@
 #endif
 
 #include "sl_ncp.h"
+#include "magic_packet.h"
 
 // -----------------------------------------------------------------------------
 // Constant definitions and macros
@@ -150,6 +151,7 @@ static void app_proprietary_task(void *p_arg)
    RAIL_Handle_t rail_handle;
    RAIL_Status_t status;
    RAIL_SchedulerInfo_t schedulerInfo;
+   uint8_t wakeHost = false;
 
    // Only set priority because transactionTime is meaningless for infinite
    // operations and slipTime has a reasonable default for relative operations.
@@ -187,8 +189,13 @@ static void app_proprietary_task(void *p_arg)
     ///////////////////////////////////////////////////////////////////////////
 
     app_log("Processing 15.4 RX packet\n");
-    // see test_timer_callback
-    sl_ncp_user_evt_message_to_host(sizeof(wakeOnRFData), wakeOnRFData);
+    MagicPacketError_t magicStatus = decodeMagicPacket(&rxData[1], &wakeHost);
+    if(wakeHost)
+    {
+      sl_ncp_user_evt_message_to_host(sizeof(wakeOnRFData), wakeOnRFData);
+    } else {
+      app_log("decodeMagicPacket returned : %d \n", magicStatus);
+    }
   }
 }
 
