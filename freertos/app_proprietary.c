@@ -77,6 +77,8 @@ static uint8_t rxData[SL_FLEX_RAIL_FRAME_MAX_SIZE];
 
 static uint8_t wakeOnRFData[1] = {0xAB};
 
+static uint8_t *eventData;
+
 /**************************************************************************//**
  * Proprietary application task.
  *
@@ -151,52 +153,118 @@ static void app_proprietary_task(void *p_arg)
    RAIL_Handle_t rail_handle;
    RAIL_Status_t status;
    RAIL_SchedulerInfo_t schedulerInfo;
-   uint8_t wakeHost = false;
-
-   // Only set priority because transactionTime is meaningless for infinite
-   // operations and slipTime has a reasonable default for relative operations.
-   schedulerInfo = (RAIL_SchedulerInfo_t){ .priority = 200 };
-
-   rail_handle = sl_flex_util_get_handle();
- #ifdef SL_CATALOG_FLEX_IEEE802154_SUPPORT_PRESENT
-   // init the selected protocol for IEEE, first
-   sl_flex_ieee802154_protocol_init(rail_handle, SL_FLEX_UTIL_INIT_PROTOCOL_INSTANCE_DEFAULT);
-   // Start reception.
-   status = RAIL_StartRx(rail_handle, sl_flex_ieee802154_get_channel(), (const RAIL_SchedulerInfo_t *)&schedulerInfo);
- #elif defined SL_CATALOG_FLEX_BLE_SUPPORT_PRESENT
-   status = RAIL_StartRx(rail_handle, BLE_CHANNEL, NULL);
- #else
- #endif
-   app_assert(status == RAIL_STATUS_NO_ERROR,
-             "[E: 0x%04x] Failed to start RAIL reception" APP_LOG_NEW_LINE,
-             (int)status);
 
   // Start task main loop.
   while (1) {
     // Wait for the event bit to be set.
     event_bits = xEventGroupWaitBits(app_proprietary_event_group_handle,
-                                     APP_PROPRIETARY_EVENT_FLAG,
+                                     (  APP_PROPRIETARY_EVENT_FLAG \
+                                      | APP_PROPRIETARY_EVENT_MAGIC_INIT_FLAG \
+                                      | APP_PROPRIETARY_EVENT_MAGIC_DEINIT_FLAG \
+                                      | APP_PROPRIETARY_EVENT_MAGIC_WAKE_FLAG),
                                      pdTRUE,
                                      pdFALSE,
                                      portMAX_DELAY);
 
-    app_assert(event_bits & APP_PROPRIETARY_EVENT_FLAG,
-               "Wrong event bit is set!" APP_LOG_NEW_LINE);
+//    app_assert(event_bits & APP_PROPRIETARY_EVENT_FLAG,
+//               "Wrong event bit is set!" APP_LOG_NEW_LINE);
 
     ///////////////////////////////////////////////////////////////////////////
     // Put your additional application code here!                            //
     // This is called when the event flag APP_PROPRIETARY_EVENT_FLAG is set  //
     ///////////////////////////////////////////////////////////////////////////
 
-    app_log("Processing 15.4 RX packet\n");
-    MagicPacketError_t magicStatus = decodeMagicPacket(&rxData[1], &wakeHost);
-    if(wakeHost)
+    if(event_bits & APP_PROPRIETARY_EVENT_FLAG)
     {
-      sl_ncp_user_evt_message_to_host(sizeof(wakeOnRFData), wakeOnRFData);
-    } else {
+      app_log("Processing 15.4 RX packet\n");
+      MagicPacketError_t magicStatus = decodeMagicPacket(&rxData[1]);
       app_log("decodeMagicPacket returned : %d \n", magicStatus);
+
+    } else if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_INIT_FLAG )
+    {
+      app_log("Enabling 15.4 RX packet\n");
+      // Only set priority because transactionTime is meaningless for infinite
+      // operations and slipTime has a reasonable default for relative operations.
+      schedulerInfo = (RAIL_SchedulerInfo_t){ .priority = 200 };
+
+      rail_handle = sl_flex_util_get_handle();
+#ifdef SL_CATALOG_FLEX_IEEE802154_SUPPORT_PRESENT
+      // init the selected protocol for IEEE, first
+      sl_flex_ieee802154_protocol_init(rail_handle, SL_FLEX_UTIL_INIT_PROTOCOL_INSTANCE_DEFAULT);
+      // Start reception.
+      status = RAIL_StartRx(rail_handle, sl_flex_ieee802154_get_channel(), (const RAIL_SchedulerInfo_t *)&schedulerInfo);
+#elif defined SL_CATALOG_FLEX_BLE_SUPPORT_PRESENT
+      status = RAIL_StartRx(rail_handle, BLE_CHANNEL, NULL);
+#else
+#endif
+      app_assert(status == RAIL_STATUS_NO_ERROR,
+                "[E: 0x%04x] Failed to start RAIL reception" APP_LOG_NEW_LINE,
+                (int)status);
+
+    } else if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_DEINIT_FLAG )
+    {
+      app_log("Disabling 15.4 RX packet\n");
+      rail_handle = sl_flex_util_get_handle();
+      RAIL_Idle(rail_handle, RAIL_IDLE_ABORT, true);
+
+    } else if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_WAKE_FLAG )
+    {
+      app_log("Send Wake event back to host\n");
+      sl_ncp_user_evt_message_to_host(sizeof(wakeOnRFData), wakeOnRFData);
     }
   }
+}
+
+MagicPacketError_t magicPacketCallback(MagicPacketCallbackEvent_t event, void *data)
+{
+  BaseType_t xHigherPriorityTaskWoken, xResult;
+  EventBits_t flag = 0;
+
+  switch (event) {
+    case MAGIC_PACKET_EVENT_ENABLED:
+      flag = APP_PROPRIETARY_EVENT_MAGIC_INIT_FLAG;
+      if(NULL != data)
+      {
+        eventData = (uint8_t*)data;
+      }
+      break;
+    case MAGIC_PACKET_EVENT_DISABLED:
+      flag = APP_PROPRIETARY_EVENT_MAGIC_DEINIT_FLAG;
+      break;
+    case MAGIC_PACKET_EVENT_WAKE_RX:
+      flag = APP_PROPRIETARY_EVENT_MAGIC_WAKE_FLAG;
+      if(NULL != data)
+      {
+        eventData = (uint8_t*)data;
+      }
+      break;
+    default:
+      break;
+  }
+
+  if(0 != flag)
+  {
+    /* xHigherPriorityTaskWoken must be initialised to pdFALSE. */
+    xHigherPriorityTaskWoken = pdFALSE;
+
+    /* Set bit 0 and bit 4 in xEventGroup. */
+    xResult = xEventGroupSetBitsFromISR(
+                                app_proprietary_event_group_handle,   /* The event group being updated. */
+                                (const EventBits_t)flag, /* The bits being set. */
+                                &xHigherPriorityTaskWoken );
+
+    /* Was the message posted successfully? */
+    if( xResult != pdFAIL )
+    {
+        /* If xHigherPriorityTaskWoken is now set to pdTRUE then a context
+        switch should be requested.  The macro used is port specific and will
+        be either portYIELD_FROM_ISR() or portEND_SWITCHING_ISR() - refer to
+        the documentation page for the port being used. */
+        portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+    }
+  }
+
+  return MAGIC_PACKET_SUCCESS;
 }
 
 /**************************************************************************//**

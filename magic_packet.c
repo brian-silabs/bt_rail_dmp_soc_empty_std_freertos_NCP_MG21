@@ -1,7 +1,10 @@
 #include "magic_packet.h"
+
 #include <string.h>
+#include "sl_common.h"
 
 #define MAX_PAYLOAD_LENGTH              128
+#define MAX_EVENT_DATA_LENGTH           20
 
 #define HEADER_802154_LENGTH            9 // Check if better than sizeof
 #define HEADER_802154_PANID_SHIFT       3
@@ -29,20 +32,28 @@ typedef struct {
 
 static uint8_t      filterEnabled_g             = 0;
 static uint8_t      amBorderRouter_g            = 0;
+static uint8_t      monitoredChannel_g          = 0;
 static uint16_t     panId_g                     = 0xFFFF;
 static uint8_t      header154LastFC_g           = 0xFF;//Access should be protected 
 static uint8_t      magicPacketLastFC_g         = 0xFF;//Access should be protected 
 
 static uint8_t      txBuffer[MAX_PAYLOAD_LENGTH] = {0x00};// Temp Tx Buffer
+static uint8_t      eventBuffer[MAX_EVENT_DATA_LENGTH] = {0x00}; // Temp event buffer
 
 static uint8_t validateMagicPayloadFC(const MagicPacketPayload_t *magicPayload_a);
 static void retransmitMagicPacket(const MagicPacketPayload_t *magicPayload_a);
 
-void enableMagicPacketFilter(uint16_t monitoredPanId_a, uint8_t amBorderRouter_a)
+void enableMagicPacketFilter(MagicPacketEnablePayload_t *enablePayload_a)
 {
-    panId_g = monitoredPanId_a;
-    amBorderRouter_g = amBorderRouter_a;
+    panId_g = enablePayload_a->panId;
+    monitoredChannel_g = enablePayload_a->channel;
+    amBorderRouter_g = enablePayload_a->borderRouter;
     filterEnabled_g = 1;
+
+    memcpy(eventBuffer, (uint8_t *)enablePayload_a, sizeof(MagicPacketEnablePayload_t));
+
+    //Optionally perform Radio Init operations (i.e. RX start if required)
+    magicPacketCallback(MAGIC_PACKET_EVENT_ENABLED, (void *)eventBuffer);//could be improved to use returned value
 }
 
 void disableMagicPacketFilter(void)
@@ -50,6 +61,8 @@ void disableMagicPacketFilter(void)
     filterEnabled_g = 0;
     amBorderRouter_g = 0;
     panId_g = 0xFFFF;
+
+    magicPacketCallback(MAGIC_PACKET_EVENT_DISABLED, NULL);
 }
 
 // Forge a magic 802.15.4 packet
@@ -72,7 +85,7 @@ void createMagicPacket(uint16_t srcAddress_a, uint16_t destAddress_a, uint16_t p
 }
 
 // Decode an 802.15.4 packet
-MagicPacketError_t decodeMagicPacket(uint8_t *packetBuffer_a, uint8_t *wake_a)
+MagicPacketError_t decodeMagicPacket(uint8_t *packetBuffer_a)
 {
     IEEE802154_Header_t *header = (IEEE802154_Header_t *)packetBuffer_a;
     MagicPacketPayload_t *magicPayload = (MagicPacketPayload_t *)(packetBuffer_a + sizeof(IEEE802154_Header_t));
@@ -81,7 +94,6 @@ MagicPacketError_t decodeMagicPacket(uint8_t *packetBuffer_a, uint8_t *wake_a)
 
     if(filterEnabled_g)
     {
-        *wake_a = 0;
         if( (MAGIC_PACKET_FC == header->frameControl)   
             && (panId_g == header->panID)               
             && (MAGIC_PACKET_SRC_ADDRESS == header->srcAddress)
@@ -89,10 +101,12 @@ MagicPacketError_t decodeMagicPacket(uint8_t *packetBuffer_a, uint8_t *wake_a)
             && (validateMagicPayloadFC(magicPayload))) // TODO : this may be done later, if we want to retransmit after wake up ?
         {
             // We are good to proceed with a wake up
-            *wake_a = 1;
+
             if(magicPayload->timeToLive > 0){
                 retransmitMagicPacket(magicPayload);
             }
+            memcpy(eventBuffer, magicPayload, sizeof(MagicPacketPayload_t));//REUSE - Can be put in single static with NULL test on data
+            magicPacketCallback(MAGIC_PACKET_EVENT_WAKE_RX, (void*)eventBuffer);
         } else {
             ret = MAGIC_PACKET_ERROR_DROPPED;
         }
@@ -122,4 +136,12 @@ static void retransmitMagicPacket(const MagicPacketPayload_t *magicPayload_a)
     createMagicPacket(MAGIC_PACKET_SRC_ADDRESS, MAGIC_PACKET_DEST_ADDRESS, panId_g, &txBuffer[1], magicPayload_a);
     txBuffer[0] = sizeof(IEEE802154_Header_t) + sizeof(MagicPacketPayload_t); // Separating size management as might be defferent in RAIL or OT
     //TODO TX(txBuffer);
+}
+
+SL_WEAK MagicPacketError_t magicPacketCallback(MagicPacketCallbackEvent_t event, void *data)
+{
+  (void)event;
+  (void)data;
+    //Do nothing
+  return MAGIC_PACKET_SUCCESS;
 }
