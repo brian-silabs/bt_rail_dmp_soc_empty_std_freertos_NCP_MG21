@@ -82,6 +82,7 @@ void sl_ncp_user_cmd_message_to_target_cb(void *data)
   sl_status_t sc = SL_STATUS_OK;
 
   switch (magic_packet_cmd->hdr) {
+    //sl_bt_user_message_to_target(01ABCD0B01)
     case MAGIC_PACKET_CMD_ENABLE_ID:
       //////////////////////////////////////////////
       // Add your user command handler code here! //
@@ -98,7 +99,7 @@ void sl_ncp_user_cmd_message_to_target_cb(void *data)
       // Send response to user command to NCP host.
       sl_ncp_user_cmd_message_to_target_rsp(sc, 1, &magic_packet_cmd->hdr);
       break;
-
+    //sl_bt_user_message_to_target(02)
     case MAGIC_PACKET_CMD_DISABLE_ID:
       //////////////////////////////////////////////
       // Add your user command handler code here! //

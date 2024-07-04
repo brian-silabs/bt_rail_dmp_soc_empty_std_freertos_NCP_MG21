@@ -937,8 +937,6 @@
   <file name="create_bl_files.sh" generated="true" linked="false"/>
   <file name="create_bl_files.py" generated="true" linked="false"/>
   <file name="sl_gatt_service_device_information.c" generated="true" linked="false"/>
-  <file name="ncp_user_cmd.c" generated="true" linked="false"/>
-  <file name="ncp_user_cmd.h" generated="true" linked="false"/>
   <includePath uri="studio:/project/"/>
   <includePath uri="studio:/project/freertos"/>
   <includePath uri="studio:/project/gecko_sdk_4.4.3/platform/Device/SiliconLabs/EFR32MG21/Include"/>

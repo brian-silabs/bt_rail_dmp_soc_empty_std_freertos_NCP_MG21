@@ -64,7 +64,6 @@ component:
 - {id: iostream_rtt}
 - {id: mpu}
 - {id: ncp}
-- {id: ncp_user_cmd}
 - {id: rail_lib_multiprotocol}
 - {id: sl_flex_rail_802154_support}
 - instance: [vcom]
