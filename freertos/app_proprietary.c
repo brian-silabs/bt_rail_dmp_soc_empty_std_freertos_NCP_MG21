@@ -294,7 +294,7 @@ void sl_rail_util_on_event(RAIL_Handle_t rail_handle,
   if(events & RAIL_EVENT_RX_PACKET_RECEIVED)
   {
     // Parse 802.15.4 packets
-    app_log("15.4 RX packet received\n");
+    //app_log("15.4 RX packet received\n");
     packetHandle = RAIL_GetRxPacketInfo(rail_handle, RAIL_RX_PACKET_HANDLE_NEWEST, &packetInfo);
     if ( packetHandle != RAIL_RX_PACKET_HANDLE_INVALID ){
       RAIL_CopyRxPacket(rxData, &packetInfo);
