@@ -3,7 +3,8 @@
 
 #include <stdint.h>
 
-#define MAGIC_PACKET_DEFAULT_TTL       0x3
+#define MAGIC_PACKET_PAYLOAD_LENGTH     3
+#define MAGIC_PACKET_DEFAULT_TTL        0x3
 
 typedef enum {
     MAGIC_PACKET_SUCCESS = 0,
@@ -14,9 +15,10 @@ typedef enum {
 } MagicPacketError_t;
 
 typedef enum {
-    MAGIC_PACKET_EVENT_ENABLED = 0, // Attached 
-    MAGIC_PACKET_EVENT_DISABLED, // Generic error, must look into src (should not be used)
-    MAGIC_PACKET_EVENT_WAKE_RX, // Not a magic packet
+    MAGIC_PACKET_EVENT_ENABLED = 0, // Init 
+    MAGIC_PACKET_EVENT_DISABLED, // Deinit
+    MAGIC_PACKET_EVENT_WAKE_RX, // Valid Magic packet received
+    MAGIC_PACKET_EVENT_TX,// TX requested
 } MagicPacketCallbackEvent_t;
 
 // Structure of the init payload

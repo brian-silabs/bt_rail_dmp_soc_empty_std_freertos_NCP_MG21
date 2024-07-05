@@ -48,8 +48,8 @@
 #else
 #endif
 
-#include "sl_ncp.h"
 #include "magic_packet.h"
+#include "ncp_magic_packet_cmd.h"
 
 // -----------------------------------------------------------------------------
 // Constant definitions and macros
@@ -74,8 +74,6 @@ EventGroupHandle_t app_proprietary_event_group_handle;
 StaticEventGroup_t app_proprietary_event_group_buffer;
 
 static uint8_t rxData[SL_FLEX_RAIL_FRAME_MAX_SIZE];
-
-static uint8_t wakeOnRFData[1] = {0xAB};
 
 static uint8_t *eventData;
 
@@ -176,11 +174,11 @@ static void app_proprietary_task(void *p_arg)
 
     if(event_bits & APP_PROPRIETARY_EVENT_FLAG)
     {
-      app_log("Processing 15.4 RX packet\n");
       MagicPacketError_t magicStatus = decodeMagicPacket(&rxData[1]);
       app_log("decodeMagicPacket returned : %d \n", magicStatus);
 
-    } else if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_INIT_FLAG )
+    }
+    if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_INIT_FLAG )
     {
       MagicPacketEnablePayload_t *enable = (MagicPacketEnablePayload_t *)eventData;
       app_log("Enabling 15.4 RX packet with :\n");
@@ -213,16 +211,23 @@ static void app_proprietary_task(void *p_arg)
                 "[E: 0x%04x] Failed to start RAIL reception" APP_LOG_NEW_LINE,
                 (int)status);
 
-    } else if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_DEINIT_FLAG )
+    }
+    if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_DEINIT_FLAG )
     {
       app_log("Disabling 15.4 RX packet\n");
       rail_handle = sl_flex_util_get_handle();
       RAIL_Idle(rail_handle, RAIL_IDLE_ABORT, true);
 
-    } else if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_WAKE_FLAG )
+    }
+    if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_WAKE_FLAG )
     {
       app_log("Send Wake event back to host\n");
-      sl_ncp_user_evt_message_to_host(sizeof(wakeOnRFData), wakeOnRFData);
+      ncp_sendMagicWakeUpPayloadToHost((MagicPacketPayload_t *)eventData);
+
+    }
+    if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_WAKE_FLAG )
+    {
+       app_log("Transmit requested\n");
     }
   }
 }
@@ -248,6 +253,13 @@ MagicPacketError_t magicPacketCallback(MagicPacketCallbackEvent_t event, void *d
       if(NULL != data)
       {
         eventData = (uint8_t*)data;
+      }
+      break;
+    case MAGIC_PACKET_EVENT_TX:
+      flag = APP_PROPRIETARY_EVENT_MAGIC_TX_FLAG;
+      if(NULL != data)
+      {
+        eventData = (uint8_t*)data;//There is a problem here as data may be overwritten before another TX
       }
       break;
     default:

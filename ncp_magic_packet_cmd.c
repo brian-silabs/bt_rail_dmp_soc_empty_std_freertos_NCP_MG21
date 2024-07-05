@@ -61,7 +61,6 @@ PACKSTRUCT(struct magic_packet_cmd {
 });
 
 typedef struct magic_packet_cmd magic_packet_cmd_t;
-
 static MagicPacketEnablePayload_t enablePayload_g;
 
 /***************************************************************************//**
@@ -82,7 +81,7 @@ void sl_ncp_user_cmd_message_to_target_cb(void *data)
   sl_status_t sc = SL_STATUS_OK;
 
   switch (magic_packet_cmd->hdr) {
-    //sl_bt_user_message_to_target(01ABCD0B01)
+    //sl_bt_user_message_to_target(01CDAB0B01)
     case MAGIC_PACKET_CMD_ENABLE_ID:
       //////////////////////////////////////////////
       // Add your user command handler code here! //
@@ -119,4 +118,16 @@ void sl_ncp_user_cmd_message_to_target_cb(void *data)
       sl_ncp_user_cmd_message_to_target_rsp(SL_STATUS_FAIL, 0, NULL);
       break;
   }
+}
+
+void ncp_sendMagicWakeUpPayloadToHost(MagicPacketPayload_t * data)
+{
+  static magic_packet_cmd_t wake_event_command;
+
+  wake_event_command.hdr = MAGIC_PACKET_CMD_WAKE_ID;
+  wake_event_command.data.magic_packet_wake_event.frameCounter = data->frameCounter;
+  wake_event_command.data.magic_packet_wake_event.status = data->status;
+  wake_event_command.data.magic_packet_wake_event.timeToLive = data->timeToLive;
+
+  sl_ncp_user_evt_message_to_host((1 + sizeof(magic_packet_wake_event_t)), (uint8_t*)&wake_event_command); // TODO check how to better manage hdr + sizeof
 }
