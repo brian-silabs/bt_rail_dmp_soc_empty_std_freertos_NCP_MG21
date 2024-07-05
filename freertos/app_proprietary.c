@@ -58,6 +58,9 @@
 #define BLE_CHANNEL ((uint8_t) 0)
 #endif
 
+#define TX_OPTIONS                        RAIL_TX_OPTIONS_DEFAULT
+#define CCA_ENABLE                        0
+
 static volatile bool app_rail_busy = true;
 
 /// Proprietary Task Parameters
@@ -74,6 +77,10 @@ EventGroupHandle_t app_proprietary_event_group_handle;
 StaticEventGroup_t app_proprietary_event_group_buffer;
 
 static uint8_t rxData[SL_FLEX_RAIL_FRAME_MAX_SIZE];
+static uint8_t txData[SL_FLEX_RAIL_FRAME_MAX_SIZE];
+#if CCA_ENABLE
+RAIL_CsmaConfig_t csmaConfig = RAIL_CSMA_CONFIG_802_15_4_2003_2p4_GHz_OQPSK_CSMA;
+#endif
 
 static uint8_t *eventData;
 
@@ -150,7 +157,8 @@ static void app_proprietary_task(void *p_arg)
 
    RAIL_Handle_t rail_handle;
    RAIL_Status_t status;
-   RAIL_SchedulerInfo_t schedulerInfo;
+   RAIL_SchedulerInfo_t rxSchedulerInfo;
+   RAIL_SchedulerInfo_t txSchedulerInfo;
 
   // Start task main loop.
   while (1) {
@@ -187,7 +195,7 @@ static void app_proprietary_task(void *p_arg)
       app_log("BR : 0x%x\n", enable->borderRouter);
       // Only set priority because transactionTime is meaningless for infinite
       // operations and slipTime has a reasonable default for relative operations.
-      schedulerInfo = (RAIL_SchedulerInfo_t){ .priority = 200 };
+      rxSchedulerInfo = (RAIL_SchedulerInfo_t){ .priority = 200 };
 
       rail_handle = sl_flex_util_get_handle();
 #ifdef SL_CATALOG_FLEX_IEEE802154_SUPPORT_PRESENT
@@ -202,7 +210,7 @@ static void app_proprietary_task(void *p_arg)
 
       sl_flex_ieee802154_set_channel(enable->channel);
       // Start reception.
-      status = RAIL_StartRx(rail_handle, sl_flex_ieee802154_get_channel(), (const RAIL_SchedulerInfo_t *)&schedulerInfo);//Flex deserves a channel setter
+      status = RAIL_StartRx(rail_handle, sl_flex_ieee802154_get_channel(), (const RAIL_SchedulerInfo_t *)&rxSchedulerInfo);//Flex deserves a channel setter
 #elif defined SL_CATALOG_FLEX_BLE_SUPPORT_PRESENT
       status = RAIL_StartRx(rail_handle, BLE_CHANNEL, NULL);
 #else
@@ -228,6 +236,21 @@ static void app_proprietary_task(void *p_arg)
     if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_WAKE_FLAG )
     {
        app_log("Transmit requested\n");
+       txSchedulerInfo.priority = 200; //Keep it lower than BLE at the moment
+       txSchedulerInfo.slipTime = 4300; // BLE ATT max size is 512, @1Mbps will be 4096us over the air . We allow our packet to slip after one
+       txSchedulerInfo.transactionTime = 1000; // our packet currently is 12 bytes at 250kbps, whic is ~400us.
+
+       rail_handle =  sl_flex_util_get_handle();
+       uint32_t bytesWritten = RAIL_WriteTxFifo(rail_handle, txData, (txData[0] + 1), true);
+       if(bytesWritten != 0)
+       {
+#if CCA_ENABLE
+         status = RAIL_StartCcaCsmaTx(rail_handle, sl_flex_ieee802154_get_channel(), TX_OPTIONS, &csmaConfig, (const RAIL_SchedulerInfo_t *)&txSchedulerInfo);
+#else
+         status = RAIL_StartTx(rail_handle, sl_flex_ieee802154_get_channel(), TX_OPTIONS, (const RAIL_SchedulerInfo_t *)&txSchedulerInfo);
+#endif //#if CCA_ENABLE
+       }
+
     }
   }
 }
@@ -259,6 +282,7 @@ MagicPacketError_t magicPacketCallback(MagicPacketCallbackEvent_t event, void *d
       flag = APP_PROPRIETARY_EVENT_MAGIC_TX_FLAG;
       if(NULL != data)
       {
+        memcpy(txData, (uint8_t*)data, ((uint8_t*)data)[0]); // We memcpy it immediately in tx buffer, still possible for the
         eventData = (uint8_t*)data;//There is a problem here as data may be overwritten before another TX
       }
       break;

@@ -23,7 +23,7 @@
 //Combination of these 3 should not be allowed, hence considered "magic"
 
 // Structure of the 802.15.4 header
-typedef struct {
+typedef struct __attribute__((packed)) { // Only GCC compatible
     uint16_t frameControl;
     uint8_t seqNumber;
     uint16_t panID;
@@ -81,7 +81,7 @@ void createMagicPacket(uint16_t srcAddress_a, uint16_t destAddress_a, uint16_t p
     // magicPayload.frameCounter = ++magicPacketLastFC_g;
     // magicPayload.status &= ((borderRouter_a << MAGIC_PACKET_STATUS_BR_SHIFT) & MAGIC_PACKET_STATUS_BR_MASK);
 
-    memcpy(packetBuffer_a, (uint8_t *)&header, HEADER_802154_LENGTH);// TODO pack header as it includes one extra
+    memcpy(packetBuffer_a, (uint8_t *)&header, HEADER_802154_LENGTH);
     memcpy(packetBuffer_a + HEADER_802154_LENGTH, (uint8_t *)magicPayload_a, MAGIC_PACKET_PAYLOAD_LENGTH);
 }
 
@@ -143,7 +143,6 @@ static void retransmitMagicPacket(const MagicPacketPayload_t *magicPayload_a)
 {
     createMagicPacket(MAGIC_PACKET_SRC_ADDRESS, MAGIC_PACKET_DEST_ADDRESS, panId_g, &txBuffer[1], magicPayload_a);
     txBuffer[0] = HEADER_802154_LENGTH + MAGIC_PACKET_PAYLOAD_LENGTH; // Separating size management as might be defferent in RAIL or OT
-    //TODO TX(txBuffer);
     magicPacketCallback(MAGIC_PACKET_EVENT_TX, (void*)txBuffer);
 }
 
