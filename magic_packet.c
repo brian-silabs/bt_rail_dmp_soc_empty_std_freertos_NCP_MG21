@@ -13,6 +13,8 @@
 #define HEADER_802154_DEST_SHIFT        5
 #define HEADER_802154_SRC_SHIFT         7
 
+#define CRC_802154_LENGTH               2
+
 #define MAGIC_PACKET_FC                 0x9841 //Data Frame, No Security, No Frame Pending, No Ack Required, PanID compressed, 2003 ver, Short Dest Address, Short Source Address
 #define MAGIC_PACKET_SRC_ADDRESS        0xFFFF
 #define MAGIC_PACKET_DEST_ADDRESS       0xFFFF
@@ -142,7 +144,7 @@ static uint8_t validateMagicPayloadFC(const MagicPacketPayload_t *magicPayload_a
 static void retransmitMagicPacket(const MagicPacketPayload_t *magicPayload_a)
 {
     createMagicPacket(MAGIC_PACKET_SRC_ADDRESS, MAGIC_PACKET_DEST_ADDRESS, panId_g, &txBuffer[1], magicPayload_a);
-    txBuffer[0] = HEADER_802154_LENGTH + MAGIC_PACKET_PAYLOAD_LENGTH; // Separating size management as might be defferent in RAIL or OT
+    txBuffer[0] = HEADER_802154_LENGTH + MAGIC_PACKET_PAYLOAD_LENGTH + CRC_802154_LENGTH; // Separating size management as might be defferent in RAIL or OT
     magicPacketCallback(MAGIC_PACKET_EVENT_TX, (void*)txBuffer);
 }
 

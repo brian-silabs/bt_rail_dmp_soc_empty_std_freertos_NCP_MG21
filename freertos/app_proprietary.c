@@ -235,19 +235,19 @@ static void app_proprietary_task(void *p_arg)
     }
     if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_WAKE_FLAG )
     {
-       app_log("Transmit requested\n");
-       txSchedulerInfo.priority = 200; //Keep it lower than BLE at the moment
+       txSchedulerInfo.priority = 199; //Keep it lower than BLE at the moment
        txSchedulerInfo.slipTime = 4300; // BLE ATT max size is 512, @1Mbps will be 4096us over the air . We allow our packet to slip after one
        txSchedulerInfo.transactionTime = 1000; // our packet currently is 12 bytes at 250kbps, whic is ~400us.
 
        rail_handle =  sl_flex_util_get_handle();
-       uint32_t bytesWritten = RAIL_WriteTxFifo(rail_handle, txData, (txData[0] + 1), true);
+       uint32_t bytesWritten = RAIL_WriteTxFifo(rail_handle, txData, txData[0], true);
        if(bytesWritten != 0)
        {
 #if CCA_ENABLE
          status = RAIL_StartCcaCsmaTx(rail_handle, sl_flex_ieee802154_get_channel(), TX_OPTIONS, &csmaConfig, (const RAIL_SchedulerInfo_t *)&txSchedulerInfo);
 #else
          status = RAIL_StartTx(rail_handle, sl_flex_ieee802154_get_channel(), TX_OPTIONS, (const RAIL_SchedulerInfo_t *)&txSchedulerInfo);
+         app_log("Transmit requested status : 0x%X\n", status);
 #endif //#if CCA_ENABLE
        }
 
@@ -331,6 +331,8 @@ void sl_rail_util_on_event(RAIL_Handle_t rail_handle,
   RAIL_Status_t rxStatus;
   BaseType_t xHigherPriorityTaskWoken, xResult;
 
+  RAIL_SchedulerStatus_t schedulerStatus;
+
   /////////////////////////////////////////////////////////////////////////////
   // Add event handlers here as your application requires!                   //
   //                                                                         //
@@ -367,14 +369,19 @@ void sl_rail_util_on_event(RAIL_Handle_t rail_handle,
             the documentation page for the port being used. */
             portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
         }
-
     }
   }
 
-  if (events & (RAIL_EVENT_TX_PACKET_SENT
-                | RAIL_EVENT_TX_ABORTED
-                | RAIL_EVENT_TX_UNDERFLOW
+  if (events & (RAIL_EVENTS_TX_COMPLETION
                 | RAIL_EVENT_SCHEDULER_STATUS)) {
+    if(events & RAIL_EVENT_SCHEDULER_STATUS)
+    {
+      schedulerStatus = RAIL_GetSchedulerStatus(rail_handle);
+    }
+    if(events & RAIL_EVENT_TX_PACKET_SENT)
+    {
+      app_log("Transmited\n");
+    }
     RAIL_YieldRadio(rail_handle);// Unnecessary to yield upon RX, according to RAIL MultiProtocol docs. We do it only here
   }
 }
