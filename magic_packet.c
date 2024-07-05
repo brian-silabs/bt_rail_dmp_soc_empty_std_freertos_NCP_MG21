@@ -37,7 +37,7 @@ static uint8_t      filterEnabled_g             = 0;
 static uint8_t      amBorderRouter_g            = 0;
 static uint8_t      monitoredChannel_g          = 0;
 static uint16_t     panId_g                     = 0xFFFF;
-static uint8_t      header154LastFC_g           = 0x00;//Access should be protected
+static uint8_t      header154LastFC_g           = 0xFF;//Access should be protected
 static uint8_t      magicPacketLastFC_g         = 0xFF;//Access should be protected 
 
 static uint8_t      txBuffer[MAX_PAYLOAD_LENGTH] = {0x00};// Temp Tx Buffer
@@ -113,6 +113,7 @@ MagicPacketError_t decodeMagicPacket(uint8_t *packetBuffer_a)
       {
           // We are good to proceed with a wake up
           if(magicPayload->timeToLive > 0){
+              magicPayload->timeToLive--;
               retransmitMagicPacket(magicPayload);
           }
           memcpy(eventBuffer, magicPayload, MAGIC_PACKET_PAYLOAD_LENGTH);//REUSE - Can be put in single static with NULL test on data
