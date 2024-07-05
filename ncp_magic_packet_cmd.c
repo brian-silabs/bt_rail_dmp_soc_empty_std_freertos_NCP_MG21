@@ -44,7 +44,7 @@ PACKSTRUCT(struct magic_packet_wake_event_s {
 typedef struct magic_packet_wake_event_s magic_packet_wake_event_t;
 
 PACKSTRUCT(struct magic_packet_enable_event_s {
-  uint8_t panId;
+  uint16_t panId;
   uint8_t channel;
   uint8_t borderRouter;
 });

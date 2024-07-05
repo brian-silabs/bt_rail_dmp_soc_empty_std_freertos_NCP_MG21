@@ -7,12 +7,14 @@
 #define MAX_EVENT_DATA_LENGTH           20
 
 #define HEADER_802154_LENGTH            9 // Check if better than sizeof
+#define HEADER_802154_FC_SHIFT          0
+#define HEADER_802154_SEQ_SHIFT         2
 #define HEADER_802154_PANID_SHIFT       3
 #define HEADER_802154_DEST_SHIFT        5
 #define HEADER_802154_SRC_SHIFT         7
 
 #define MAGIC_PACKET_PAYLOAD_LENGTH     3 // Check if better than sizeof
-#define MAGIC_PACKET_FC                 0x8841 //Data Frame, No Security, No Frame Pending, No Ack Required, PanID compressed, 2003 ver, Short Dest Address, Short Source Address
+#define MAGIC_PACKET_FC                 0x9841 //Data Frame, No Security, No Frame Pending, No Ack Required, PanID compressed, 2003 ver, Short Dest Address, Short Source Address
 #define MAGIC_PACKET_SRC_ADDRESS        0xFFFF
 #define MAGIC_PACKET_DEST_ADDRESS       0xFFFF
 
@@ -50,7 +52,7 @@ void enableMagicPacketFilter(MagicPacketEnablePayload_t *enablePayload_a)
     amBorderRouter_g = enablePayload_a->borderRouter;
     filterEnabled_g = 1;
 
-    memcpy(eventBuffer, (uint8_t *)enablePayload_a, sizeof(MagicPacketEnablePayload_t));
+    memcpy(eventBuffer, (uint8_t *)enablePayload_a, MAGIC_PACKET_PAYLOAD_LENGTH);
 
     //Optionally perform Radio Init operations (i.e. RX start if required)
     magicPacketCallback(MAGIC_PACKET_EVENT_ENABLED, (void *)eventBuffer);//could be improved to use returned value
@@ -80,24 +82,30 @@ void createMagicPacket(uint16_t srcAddress_a, uint16_t destAddress_a, uint16_t p
     // magicPayload.frameCounter = ++magicPacketLastFC_g;
     // magicPayload.status &= ((borderRouter_a << MAGIC_PACKET_STATUS_BR_SHIFT) & MAGIC_PACKET_STATUS_BR_MASK);
 
-    memcpy(packetBuffer_a, &header, sizeof(IEEE802154_Header_t));
-    memcpy(packetBuffer_a + sizeof(IEEE802154_Header_t), magicPayload_a, sizeof(MagicPacketPayload_t));
+    memcpy(packetBuffer_a, (uint8_t *)&header, HEADER_802154_LENGTH);
+    memcpy(packetBuffer_a + HEADER_802154_LENGTH, (uint8_t *)magicPayload_a, MAGIC_PACKET_PAYLOAD_LENGTH);
 }
 
 // Decode an 802.15.4 packet
 MagicPacketError_t decodeMagicPacket(uint8_t *packetBuffer_a)
 {
-    IEEE802154_Header_t *header = (IEEE802154_Header_t *)packetBuffer_a;
-    MagicPacketPayload_t *magicPayload = (MagicPacketPayload_t *)(packetBuffer_a + sizeof(IEEE802154_Header_t));
+    //IEEE802154_Header_t *header = (IEEE802154_Header_t *)packetBuffer_a;
+    IEEE802154_Header_t header;
+    header.frameControl =  (*(uint16_t *)(packetBuffer_a + HEADER_802154_FC_SHIFT));
+    header.seqNumber =  (*(uint8_t *)(packetBuffer_a + HEADER_802154_SEQ_SHIFT));
+    header.panID =  (*(uint16_t *)(packetBuffer_a + HEADER_802154_PANID_SHIFT));
+    header.dstAddress =  (*(uint16_t *)(packetBuffer_a + HEADER_802154_DEST_SHIFT));
+    header.srcAddress =  (*(uint16_t *)(packetBuffer_a + HEADER_802154_SRC_SHIFT));
 
+    MagicPacketPayload_t *magicPayload = (MagicPacketPayload_t *)(packetBuffer_a + HEADER_802154_LENGTH); // Cast works only if bytes used / should be packed otherwise
     MagicPacketError_t ret = MAGIC_PACKET_SUCCESS;
 
     if(filterEnabled_g)
     {
-        if( (MAGIC_PACKET_FC == header->frameControl)   
-            && (panId_g == header->panID)               
-            && (MAGIC_PACKET_SRC_ADDRESS == header->srcAddress)
-            && (MAGIC_PACKET_DEST_ADDRESS == header->dstAddress)
+        if( (MAGIC_PACKET_FC == header.frameControl)
+            && (panId_g == header.panID)
+            && (MAGIC_PACKET_SRC_ADDRESS == header.srcAddress)
+            && (MAGIC_PACKET_DEST_ADDRESS == header.dstAddress)
             && (validateMagicPayloadFC(magicPayload))) // TODO : this may be done later, if we want to retransmit after wake up ?
         {
             // We are good to proceed with a wake up
@@ -105,7 +113,7 @@ MagicPacketError_t decodeMagicPacket(uint8_t *packetBuffer_a)
             if(magicPayload->timeToLive > 0){
                 retransmitMagicPacket(magicPayload);
             }
-            memcpy(eventBuffer, magicPayload, sizeof(MagicPacketPayload_t));//REUSE - Can be put in single static with NULL test on data
+            memcpy(eventBuffer, magicPayload, MAGIC_PACKET_PAYLOAD_LENGTH);//REUSE - Can be put in single static with NULL test on data
             magicPacketCallback(MAGIC_PACKET_EVENT_WAKE_RX, (void*)eventBuffer);
         } else {
             ret = MAGIC_PACKET_ERROR_DROPPED;
@@ -122,7 +130,7 @@ static uint8_t validateMagicPayloadFC(const MagicPacketPayload_t *magicPayload_a
 {
     //Check and validate Frame counter
     if( (magicPayload_a->frameCounter > magicPacketLastFC_g)
-        || ((magicPayload_a->frameCounter > 0 ) && (magicPacketLastFC_g == 0xFF)))
+        || ((magicPayload_a->frameCounter >= 0 ) && (magicPacketLastFC_g == 0xFF)))
     {
         return 1;
     } else 
@@ -134,7 +142,7 @@ static uint8_t validateMagicPayloadFC(const MagicPacketPayload_t *magicPayload_a
 static void retransmitMagicPacket(const MagicPacketPayload_t *magicPayload_a)
 {
     createMagicPacket(MAGIC_PACKET_SRC_ADDRESS, MAGIC_PACKET_DEST_ADDRESS, panId_g, &txBuffer[1], magicPayload_a);
-    txBuffer[0] = sizeof(IEEE802154_Header_t) + sizeof(MagicPacketPayload_t); // Separating size management as might be defferent in RAIL or OT
+    txBuffer[0] = HEADER_802154_LENGTH + MAGIC_PACKET_PAYLOAD_LENGTH; // Separating size management as might be defferent in RAIL or OT
     //TODO TX(txBuffer);
 }
 

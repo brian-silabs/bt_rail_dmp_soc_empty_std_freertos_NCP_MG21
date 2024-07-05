@@ -173,6 +173,13 @@ sl_flex_ieee802154_std_t sl_flex_ieee802154_get_std(void);
 uint16_t sl_flex_ieee802154_get_channel(void);
 
 /**************************************************************************//**
+ * The function gives back the used channel.
+ *
+ * @param[in] channel_a    used channel
+ *****************************************************************************/
+void sl_flex_ieee802154_set_channel(uint16_t channel_a);
+
+/**************************************************************************//**
  * The function prints the frame based on the desired standard.
  *
  * @param[in] std       used standard, IEEE 802.15.4 or IEEE 802.15.4g

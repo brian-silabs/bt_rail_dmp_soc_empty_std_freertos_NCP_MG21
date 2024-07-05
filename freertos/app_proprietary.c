@@ -182,7 +182,11 @@ static void app_proprietary_task(void *p_arg)
 
     } else if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_INIT_FLAG )
     {
-      app_log("Enabling 15.4 RX packet\n");
+      MagicPacketEnablePayload_t *enable = (MagicPacketEnablePayload_t *)eventData;
+      app_log("Enabling 15.4 RX packet with :\n");
+      app_log("PanID : 0x%x\n", enable->panId);
+      app_log("Channel : 0x%x\n", enable->channel);
+      app_log("BR : 0x%x\n", enable->borderRouter);
       // Only set priority because transactionTime is meaningless for infinite
       // operations and slipTime has a reasonable default for relative operations.
       schedulerInfo = (RAIL_SchedulerInfo_t){ .priority = 200 };
@@ -191,8 +195,16 @@ static void app_proprietary_task(void *p_arg)
 #ifdef SL_CATALOG_FLEX_IEEE802154_SUPPORT_PRESENT
       // init the selected protocol for IEEE, first
       sl_flex_ieee802154_protocol_init(rail_handle, SL_FLEX_UTIL_INIT_PROTOCOL_INSTANCE_DEFAULT);
+
+
+      status = RAIL_IEEE802154_SetPanId(rail_handle, enable->panId, 0);
+      if (status != RAIL_STATUS_NO_ERROR) {
+        app_log_error("RAIL_IEEE802154_SetPanId() status: %d failed", status);
+      }
+
+      sl_flex_ieee802154_set_channel(enable->channel);
       // Start reception.
-      status = RAIL_StartRx(rail_handle, sl_flex_ieee802154_get_channel(), (const RAIL_SchedulerInfo_t *)&schedulerInfo);
+      status = RAIL_StartRx(rail_handle, sl_flex_ieee802154_get_channel(), (const RAIL_SchedulerInfo_t *)&schedulerInfo);//Flex deserves a channel setter
 #elif defined SL_CATALOG_FLEX_BLE_SUPPORT_PRESENT
       status = RAIL_StartRx(rail_handle, BLE_CHANNEL, NULL);
 #else
