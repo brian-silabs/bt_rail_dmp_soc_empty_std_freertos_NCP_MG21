@@ -28,21 +28,17 @@
  *
  ******************************************************************************/
 
-#ifndef NCP_USER_CMD_H
-#define NCP_USER_CMD_H
+#ifndef NCP_MAGIC_PACKET_CMD_H
+#define NCP_MAGIC_PACKET_CMD_H
 
-/***********************************************************************************************//**
- * @addtogroup ncp_user_cmd
- * @{
- **************************************************************************************************/
+#include "wake-on-rf/magic_packet.h"
 
-#define USER_CMD_PERIODIC_ASYNC_ID        0x01
-#define USER_CMD_PERIODIC_ASYNC_STOP_ID   0x02
-#define USER_CMD_GET_BOARD_NAME_ID        0x03
-#define USER_CMD_RESPONSE_ID              0x04
-#define USER_CMD_PERIODIC_SYNC_ID         0x05
+#define MAGIC_PACKET_CMD_ENABLE_ID         0x01
+#define MAGIC_PACKET_CMD_DISABLE_ID        0x02
+#define MAGIC_PACKET_CMD_WAKE_ID           0x03
+#define MAGIC_PACKET_CMD_RESPONSE_ID       0x04
 
-#define USER_RSP_GET_BOARD_NAME_LEN       8
+void ncp_sendMagicWakeUpPayloadToHost(MagicPacketPayload_t * data);
 
 /** @} (end addtogroup ncp_user_cmd) */
-#endif // NCP_USER_CMD_H
+#endif // NCP_MAGIC_PACKET_CMD_H

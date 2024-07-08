@@ -1,0 +1,3 @@
+[submodule "wake-on-rf"]
+	path = wake-on-rf
+	url = https://github.com/brian-silabs/wake-on-rf.git

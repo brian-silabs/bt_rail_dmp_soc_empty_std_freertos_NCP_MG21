@@ -137,6 +137,7 @@ void sl_flex_util_init(void)
                              | RAIL_EVENT_TXACK_ABORTED
                              | RAIL_EVENT_TXACK_BLOCKED
                              | RAIL_EVENT_TXACK_UNDERFLOW
+                             | RAIL_EVENT_SCHEDULER_STATUS
                              );
   app_assert((RAIL_STATUS_NO_ERROR == status),
              "RAIL_ConfigEvents failed, return value: %d",

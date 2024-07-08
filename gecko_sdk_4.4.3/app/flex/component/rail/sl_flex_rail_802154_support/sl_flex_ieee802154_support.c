@@ -198,6 +198,11 @@ uint16_t sl_flex_ieee802154_get_channel(void)
   return channel;
 }
 
+void sl_flex_ieee802154_set_channel(uint16_t channel_a)
+{
+  channel = channel_a;
+}
+
 void sl_flex_ieee802154_print_frame(sl_flex_ieee802154_std_t std,
                                     sl_flex_ieee802154_frame_t *frame)
 {

@@ -34,7 +34,11 @@
 #include "event_groups.h"
 
 // Dummy OS event flag
-#define APP_PROPRIETARY_EVENT_FLAG        (1 << 0)
+#define APP_PROPRIETARY_EVENT_FLAG                    (1 << 0)
+#define APP_PROPRIETARY_EVENT_MAGIC_INIT_FLAG         (1 << 1)
+#define APP_PROPRIETARY_EVENT_MAGIC_DEINIT_FLAG       (1 << 2)
+#define APP_PROPRIETARY_EVENT_MAGIC_WAKE_FLAG         (1 << 3)
+#define APP_PROPRIETARY_EVENT_MAGIC_TX_FLAG           (1 << 4)
 
 /// OS event to communicate with the proprietary task
 extern EventGroupHandle_t app_proprietary_event_group_handle;
