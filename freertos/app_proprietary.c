@@ -48,7 +48,7 @@
 #else
 #endif
 
-#include "magic_packet.h"
+#include "wake-on-rf/magic_packet.h"
 #include "ncp_magic_packet_cmd.h"
 
 // -----------------------------------------------------------------------------

@@ -33,7 +33,7 @@
 
 #include "sl_ncp.h"
 #include "ncp_magic_packet_cmd.h"
-#include "magic_packet.h"
+#include "wake-on-rf/magic_packet.h"
 
 PACKSTRUCT(struct magic_packet_wake_event_s {
   uint8_t frameCounter;

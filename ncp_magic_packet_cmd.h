@@ -31,7 +31,7 @@
 #ifndef NCP_MAGIC_PACKET_CMD_H
 #define NCP_MAGIC_PACKET_CMD_H
 
-#include "magic_packet.h"
+#include "wake-on-rf/magic_packet.h"
 
 #define MAGIC_PACKET_CMD_ENABLE_ID         0x01
 #define MAGIC_PACKET_CMD_DISABLE_ID        0x02
