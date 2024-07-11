@@ -35,8 +35,9 @@
 
 #define MAGIC_PACKET_CMD_ENABLE_ID         0x01
 #define MAGIC_PACKET_CMD_DISABLE_ID        0x02
-#define MAGIC_PACKET_CMD_WAKE_ID           0x03
-#define MAGIC_PACKET_CMD_RESPONSE_ID       0x04
+#define MAGIC_PACKET_CMD_WAKE_RECEIVED_ID  0x03
+#define MAGIC_PACKET_CMD_WAKE_TRANSMIT_ID  0x04
+#define MAGIC_PACKET_CMD_RESPONSE_ID       0x05
 
 void ncp_sendMagicWakeUpPayloadToHost(MagicPacketPayload_t * data);
 

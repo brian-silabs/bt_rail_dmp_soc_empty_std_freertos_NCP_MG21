@@ -62,6 +62,7 @@ PACKSTRUCT(struct magic_packet_cmd {
 
 typedef struct magic_packet_cmd magic_packet_cmd_t;
 static MagicPacketEnablePayload_t enablePayload_g;
+static MagicPacketPayload_t wakePayload_g;
 
 /***************************************************************************//**
  * User command (message_to_target) handler callback.
@@ -108,6 +109,22 @@ void sl_ncp_user_cmd_message_to_target_cb(void *data)
       sl_ncp_user_cmd_message_to_target_rsp(sc, 1, &magic_packet_cmd->hdr);
       break;
 
+    //sl_bt_user_message_to_target(04000103)
+    case MAGIC_PACKET_CMD_WAKE_TRANSMIT_ID:
+      //////////////////////////////////////////////
+      // Add your user command handler code here! //
+      //////////////////////////////////////////////
+      //Create magic packet
+      wakePayload_g.frameCounter = magic_packet_cmd->data.magic_packet_wake_event.frameCounter;
+      wakePayload_g.status = magic_packet_cmd->data.magic_packet_wake_event.status;
+      wakePayload_g.timeToLive = magic_packet_cmd->data.magic_packet_wake_event.timeToLive;
+      //Send magic packet
+      MagicPacketError_t error = sendMagicPacket(&wakePayload_g);
+
+      // Send response to user command to NCP host.
+      sl_ncp_user_cmd_message_to_target_rsp(error, 1, &magic_packet_cmd->hdr);
+      break;
+
     /////////////////////////////////////////////////
     // Add further user command handler code here! //
     /////////////////////////////////////////////////
@@ -124,7 +141,7 @@ void ncp_sendMagicWakeUpPayloadToHost(MagicPacketPayload_t * data)
 {
   static magic_packet_cmd_t wake_event_command;
 
-  wake_event_command.hdr = MAGIC_PACKET_CMD_WAKE_ID;
+  wake_event_command.hdr = MAGIC_PACKET_CMD_WAKE_RECEIVED_ID;
   wake_event_command.data.magic_packet_wake_event.frameCounter = data->frameCounter;
   wake_event_command.data.magic_packet_wake_event.status = data->status;
   wake_event_command.data.magic_packet_wake_event.timeToLive = data->timeToLive;
