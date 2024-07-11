@@ -167,7 +167,8 @@ static void app_proprietary_task(void *p_arg)
                                      (  APP_PROPRIETARY_EVENT_FLAG \
                                       | APP_PROPRIETARY_EVENT_MAGIC_INIT_FLAG \
                                       | APP_PROPRIETARY_EVENT_MAGIC_DEINIT_FLAG \
-                                      | APP_PROPRIETARY_EVENT_MAGIC_WAKE_FLAG),
+                                      | APP_PROPRIETARY_EVENT_MAGIC_WAKE_FLAG \
+                                      | APP_PROPRIETARY_EVENT_MAGIC_TX_FLAG),
                                      pdTRUE,
                                      pdFALSE,
                                      portMAX_DELAY);
@@ -233,7 +234,7 @@ static void app_proprietary_task(void *p_arg)
       ncp_sendMagicWakeUpPayloadToHost((MagicPacketPayload_t *)eventData);
 
     }
-    if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_WAKE_FLAG )
+    if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_TX_FLAG )
     {
        txSchedulerInfo.priority = 199; //Keep it lower than BLE at the moment
        txSchedulerInfo.slipTime = 4300; // BLE ATT max size is 512, @1Mbps will be 4096us over the air . We allow our packet to slip after one
