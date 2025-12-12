@@ -17,7 +17,6 @@
     <file name="sli_mbedtls_config_autogen.h" builtin="true" generated="true"/>
     <file name="sli_mbedtls_config_transform_autogen.h" builtin="true" generated="true"/>
     <file name="sl_ncp_local_evt_process.c" builtin="true" generated="true"/>
-    <file name="ncp_btmesh_user_cmd_handler.c" builtin="true" generated="true"/>
     <file name="sli_psa_config_autogen.h" builtin="true" generated="true"/>
     <file name="sli_psa_builtin_config_autogen.h" builtin="true" generated="true"/>
     <file name="sl_rail_util_callbacks.c" builtin="true" generated="true"/>

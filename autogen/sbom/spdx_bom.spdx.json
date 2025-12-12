@@ -5,7 +5,7 @@
   "name" : "Silicon-Laboratories",
   "documentNamespace" : "https://silabs.com",
   "creationInfo" : {
-    "created" : "2025-12-12T15:41:09Z",
+    "created" : "2025-12-12T16:21:32Z",
     "creators" : [ "Tool: Silicon Labs Configuration Tooling" ]
   },
   "comment" : "TERMS OF USE - SILICON LABORATORIES INC.\n(With respect to Silicon Labs software components, this Software Bill of Materials (SBOM) is based upon Silicon Labs'\nreview and analysis of the code version when released.  It is provided \"AS IS\" and does not modify, change or alter\nthe terms or conditions of your use of Silicon Labs' software and/or SDKs based upon license terms and/or agreements\nassociated with this software or SDKs when distributed to you, received by you, or installed by you.  Further, no\nwarranties or obligations are created by this SBOM.  It is your obligation to comply with the terms of licenses\nreferenced in this SBOM.)",
@@ -34,6 +34,30 @@
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib"
   }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_dynamic_gattdb",
+    "name" : "Dynamic GATT Database",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "Zlib AND MSLA"
+  }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_advertiser",
+    "name" : "Extended Advertising",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "MSLA"
+  }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_scanner",
+    "name" : "Scanner for extended advertisements",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "MSLA"
+  }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_gatt_server",
     "name" : "GATT Server",
     "versionInfo" : "2025.6.2",
@@ -50,6 +74,14 @@
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "MSLA"
   }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_periodic_advertiser",
+    "name" : "Periodic Advertising",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "Zlib AND MSLA"
+  }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sm",
     "name" : "Security Manager",
     "versionInfo" : "2025.6.2",
@@ -58,8 +90,24 @@
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "MSLA"
   }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sync",
+    "name" : "Periodic Advertising Synchronization",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "Zlib AND MSLA"
+  }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_system",
     "name" : "System",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "MSLA"
+  }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_test",
+    "name" : "Direct Test Mode",
     "versionInfo" : "2025.6.2",
     "primaryPackagePurpose" : "LIBRARY",
     "downloadLocation" : "NOASSERTION",
@@ -145,8 +193,24 @@
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib"
   }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt",
+    "name" : "GPIOINT",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "Zlib"
+  }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-in_place_ota_dfu",
     "name" : "In-Place OTA DFU",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "Zlib"
+  }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-iostream_rtt",
+    "name" : "IO Stream: RTT",
     "versionInfo" : "2025.6.2",
     "primaryPackagePurpose" : "LIBRARY",
     "downloadLocation" : "NOASSERTION",
@@ -179,6 +243,14 @@
   }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-sl_rail_sdk_802154_support",
     "name" : "IEEE 802.15.4 support (Simple TRX Std Only)",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "Zlib"
+  }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-uartdrv_usart",
+    "name" : "UARTDRV USART",
     "versionInfo" : "2025.6.2",
     "primaryPackagePurpose" : "LIBRARY",
     "downloadLocation" : "NOASSERTION",
@@ -342,6 +414,14 @@
     "downloadLocation" : "NOASSERTION",
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib"
+  }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-segger_rtt",
+    "name" : "SEGGER RTT",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "Segger"
   }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-device_gpio",
     "name" : "Device Manager GPIO",
@@ -827,6 +907,14 @@
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib"
   }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-uartdrv_core",
+    "name" : "UARTDRV Core",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "Zlib"
+  }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-clock_manager_runtime",
     "name" : "Clock Manager Runtime",
     "versionInfo" : "2025.6.2",
@@ -1251,6 +1339,14 @@
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib AND MSLA"
   }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-emlib_usart",
+    "name" : "USART",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "Zlib"
+  }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_common",
     "name" : "Bluetooth Low Energy Common Component",
     "versionInfo" : "2025.6.2",
@@ -1293,6 +1389,14 @@
   }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_version",
     "name" : "Bluetooth Version",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "MSLA"
+  }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_scanner",
+    "name" : "Scanner Base Feature",
     "versionInfo" : "2025.6.2",
     "primaryPackagePurpose" : "LIBRARY",
     "downloadLocation" : "NOASSERTION",
@@ -1658,32 +1762,16 @@
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib"
   }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-iostream_rtt",
-    "name" : "IO Stream: RTT",
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_legacy_scanner",
+    "name" : "Scanner for legacy advertisements",
     "versionInfo" : "2025.6.2",
     "primaryPackagePurpose" : "LIBRARY",
     "downloadLocation" : "NOASSERTION",
     "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "Zlib"
+    "licenseConcluded" : "MSLA"
   }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-segger_rtt",
-    "name" : "SEGGER RTT",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "Segger"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt",
-    "name" : "GPIOINT",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "Zlib"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-ncp_btmesh_user_cmd",
-    "name" : "NCP User Commands",
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-ncp",
+    "name" : "NCP Interface",
     "versionInfo" : "2025.6.2",
     "primaryPackagePurpose" : "LIBRARY",
     "downloadLocation" : "NOASSERTION",
@@ -1698,32 +1786,8 @@
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib"
   }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-ncp",
-    "name" : "NCP Interface",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "Zlib"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-uartdrv_core",
-    "name" : "UARTDRV Core",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "Zlib"
-  }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_ncp_transport_usart",
     "name" : "Bluetooth NCP Transport over USART",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "Zlib"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-emlib_usart",
-    "name" : "USART",
     "versionInfo" : "2025.6.2",
     "primaryPackagePurpose" : "LIBRARY",
     "downloadLocation" : "NOASSERTION",
@@ -1745,70 +1809,6 @@
     "downloadLocation" : "NOASSERTION",
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_advertiser",
-    "name" : "Extended Advertising",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "MSLA"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_scanner",
-    "name" : "Scanner for extended advertisements",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "MSLA"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_scanner",
-    "name" : "Scanner Base Feature",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "MSLA"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_periodic_advertiser",
-    "name" : "Periodic Advertising",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "Zlib AND MSLA"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sync",
-    "name" : "Periodic Advertising Synchronization",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "Zlib AND MSLA"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_dynamic_gattdb",
-    "name" : "Dynamic GATT Database",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "Zlib AND MSLA"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_test",
-    "name" : "Direct Test Mode",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "MSLA"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-uartdrv_usart",
-    "name" : "UARTDRV USART",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "Zlib"
   } ],
   "relationships" : [ {
     "spdxElementId" : "SPDXRef-DOCUMENT",
@@ -1824,6 +1824,18 @@
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_dynamic_gattdb",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_advertiser",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_scanner",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_gatt_server",
     "relationshipType" : "CONTAINS"
   }, {
@@ -1832,11 +1844,23 @@
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_periodic_advertiser",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sm",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sync",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_system",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_test",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
@@ -1876,7 +1900,15 @@
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-in_place_ota_dfu",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-iostream_rtt",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
@@ -1893,6 +1925,10 @@
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-sl_rail_sdk_802154_support",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-uartdrv_usart",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
@@ -1969,6 +2005,10 @@
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-rail_util_dma",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-segger_rtt",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
@@ -2204,6 +2244,10 @@
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-uartdrv_core",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-clock_manager_runtime",
     "relationshipType" : "CONTAINS"
   }, {
@@ -2412,6 +2456,10 @@
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-emlib_usart",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_common",
     "relationshipType" : "CONTAINS"
   }, {
@@ -2433,6 +2481,10 @@
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_version",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_scanner",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
@@ -2600,23 +2652,7 @@
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-iostream_rtt",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-segger_rtt",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-ncp_btmesh_user_cmd",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-ncp_evt_filter",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_legacy_scanner",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
@@ -2624,15 +2660,11 @@
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-uartdrv_core",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-ncp_evt_filter",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_ncp_transport_usart",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-emlib_usart",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
@@ -2641,38 +2673,6 @@
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-app_rta",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_advertiser",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_scanner",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_scanner",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_periodic_advertiser",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sync",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_dynamic_gattdb",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_test",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-uartdrv_usart",
     "relationshipType" : "CONTAINS"
   } ]
 }

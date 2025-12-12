@@ -714,15 +714,6 @@
           </folder>
         </folder>
       </folder>
-      <folder name="btmesh">
-        <folder name="common">
-          <folder name="ncp_btmesh_user_cmd">
-            <file name="ncp_btmesh_user_cmd.c" linked="false" uri="studio:/sdk/app/btmesh/common/ncp_btmesh_user_cmd/ncp_btmesh_user_cmd.c"/>
-            <file name="ncp_btmesh_user_cmd.h" linked="false" uri="studio:/sdk/app/btmesh/common/ncp_btmesh_user_cmd/ncp_btmesh_user_cmd.h"/>
-            <file name="ncp_btmesh_user_cmd_handler.h" linked="false" uri="studio:/sdk/app/btmesh/common/ncp_btmesh_user_cmd/ncp_btmesh_user_cmd_handler.h"/>
-          </folder>
-        </folder>
-      </folder>
       <folder name="rail">
         <folder name="component">
           <folder name="sl_rail_sdk_802154_support">
@@ -1248,7 +1239,6 @@
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/platform/service/memory_manager/profiler/inc"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/platform/service/mpu/inc"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/app/bluetooth/common/ncp"/>
-  <includePath uri="studio:/project/simplicity_sdk_2025.6.2/app/btmesh/common/ncp_btmesh_user_cmd"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/app/bluetooth/common/ncp_evt_filter"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/platform/emdrv/nvm3/inc"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/platform/emdrv/nvm3/config"/>

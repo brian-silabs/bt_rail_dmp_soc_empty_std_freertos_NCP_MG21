@@ -1,9 +1,9 @@
 /***************************************************************************//**
  * @file
- * @brief ncp_btmesh_user_cmd_handler.h
+ * @brief Application interface provided to main().
  *******************************************************************************
  * # License
- * <b>Copyright 2023 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -28,21 +28,12 @@
  *
  ******************************************************************************/
 
-#ifndef SL_BTMESH_NCP_USER_CMD_HANDLER_H
-#define SL_BTMESH_NCP_USER_CMD_HANDLER_H
+#ifndef APP_H
+#define APP_H
 
-/***************************************************************************//**
- * @addtogroup ncp_btmesh_user_cmd
- * @{
- ******************************************************************************/
+/**************************************************************************//**
+ * Application Init.
+ *****************************************************************************/
+void app_init(void);
 
-/***************************************************************************//**
- * This function handles user defined commands received from NCP host.
- *
- * @param[in] data       Pointer to the data received from NCP host
- * @param[out] cmd_handled  Flag to indicate if the command is handled
- ******************************************************************************/
-void ncp_cmd_to_target_handler(void *data, bool *cmd_handled);
-/** @} (end addtogroup ncp_btmesh_user_cmd) */
-
-#endif // SL_BTMESH_NCP_USER_CMD_HANDLER_H
+#endif // APP_H

@@ -41,6 +41,7 @@ component:
 - {id: bluetooth_feature_extended_scanner}
 - {id: bluetooth_feature_gatt_server}
 - {id: bluetooth_feature_legacy_advertiser}
+- {id: bluetooth_feature_legacy_scanner}
 - {id: bluetooth_feature_periodic_advertiser}
 - {id: bluetooth_feature_sm}
 - {id: bluetooth_feature_sync}
@@ -58,7 +59,7 @@ component:
 - {id: in_place_ota_dfu}
 - {id: iostream_rtt}
 - {id: mpu}
-- {id: ncp_btmesh_user_cmd}
+- {id: ncp}
 - {id: rail_lib_multiprotocol}
 - {id: sl_main}
 - {id: sl_rail_sdk_802154_support}

@@ -13,7 +13,7 @@ DocumentNamespace: https://silabs.com
 
 ## Creation Information
 Creator: Organization: Silicon Laboratories, Inc.
-Created: 2025-12-12T15:41:09Z
+Created: 2025-12-12T16:21:32Z
 ## Relationships
 Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-simplicity_sdk-2025.6.2
 
@@ -27,10 +27,16 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-EFR32MG21A020F1024IM32
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-app_assert
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_dynamic_gattdb
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_advertiser
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_scanner
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_gatt_server
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_legacy_advertiser
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_periodic_advertiser
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sm
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sync
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_system
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_test
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_stack
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-brd4002a
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-brd4180a
@@ -39,11 +45,14 @@ Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-20
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-freertos
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-gatt_configuration
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-gatt_service_device_information_override
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-in_place_ota_dfu
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-iostream_rtt
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-mpu
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-rail_lib_multiprotocol
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-sl_main
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-sl_rail_sdk_802154_support
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-uartdrv_usart
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-dmadrv_core
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-psa_crypto_cipher_ecb
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-psa_crypto_ecdh
@@ -60,6 +69,7 @@ Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-20
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-psa_crypto_trng
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-slist
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-rail_util_dma
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-segger_rtt
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-device_gpio
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-freertos_kernel_cortexm
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-iostream_retarget_stdio
@@ -113,6 +123,7 @@ Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-20
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-psa_crypto
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-emlib_prs
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-psa_driver
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-uartdrv_core
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-clock_manager_runtime
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-sl_rail_sdk_packet_asm
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-psa_crypto_source
@@ -161,12 +172,14 @@ Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-20
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-apploader
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-sl_rail_util_callbacks
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_host_adaptation
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-emlib_usart
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_common
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-rail_util_power_manager_init
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-emlib_gpio
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-nvm3_default_flash_backend
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-device_clock_hal
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_version
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_scanner
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-cmsis_rtos2_init
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-mbedtls_slcrypto
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-sl_assert
@@ -200,25 +213,12 @@ Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-20
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-sl_main_init
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-sl_main_process_action
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-gpio
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-iostream_rtt
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-segger_rtt
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-ncp_btmesh_user_cmd
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-ncp_evt_filter
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_legacy_scanner
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-ncp
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-uartdrv_core
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-ncp_evt_filter
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_ncp_transport_usart
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-emlib_usart
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-app_queue
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-app_rta
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_advertiser
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_scanner
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_scanner
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_periodic_advertiser
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sync
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_dynamic_gattdb
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_test
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-uartdrv_usart
 
 ## Package Information
 PackageName: EFR32MG21A020F1024IM32
@@ -243,6 +243,39 @@ PackageLicenseConcluded: Zlib
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-app_assert CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
+PackageName: Dynamic GATT Database
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_dynamic_gattdb
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: Zlib AND MSLA
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_dynamic_gattdb CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
+PackageName: Extended Advertising
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_advertiser
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: MSLA
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_advertiser CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
+PackageName: Scanner for extended advertisements
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_scanner
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: MSLA
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_scanner CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
 PackageName: GATT Server
 SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_gatt_server
 PackageVersion: 2025.6.2
@@ -265,6 +298,17 @@ PackageLicenseConcluded: MSLA
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_legacy_advertiser CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
+PackageName: Periodic Advertising
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_periodic_advertiser
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: Zlib AND MSLA
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_periodic_advertiser CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
 PackageName: Security Manager
 SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sm
 PackageVersion: 2025.6.2
@@ -276,6 +320,17 @@ PackageLicenseConcluded: MSLA
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sm CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
+PackageName: Periodic Advertising Synchronization
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sync
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: Zlib AND MSLA
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sync CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
 PackageName: System
 SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_system
 PackageVersion: 2025.6.2
@@ -285,6 +340,17 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: MSLA
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_system CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
+PackageName: Direct Test Mode
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_test
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: MSLA
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_test CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
 PackageName: Bluetooth Core
@@ -390,6 +456,17 @@ PackageLicenseConcluded: Zlib
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-gatt_service_device_information_override CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
+PackageName: GPIOINT
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: Zlib
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
 PackageName: In-Place OTA DFU
 SPDXID: SPDXRef-simplicity_sdk-2025.6.2-in_place_ota_dfu
 PackageVersion: 2025.6.2
@@ -399,6 +476,17 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: Zlib
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-in_place_ota_dfu CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
+PackageName: IO Stream: RTT
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-iostream_rtt
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: Zlib
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-iostream_rtt CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
 PackageName: Simple MPU
@@ -443,6 +531,17 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: Zlib
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-sl_rail_sdk_802154_support CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
+PackageName: UARTDRV USART
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-uartdrv_usart
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: Zlib
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-uartdrv_usart CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
 PackageName: DMADRV Core
@@ -661,6 +760,17 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: Zlib
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-rail_util_dma CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
+PackageName: SEGGER RTT
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-segger_rtt
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: Segger
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-segger_rtt CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
 PackageName: Device Manager GPIO
@@ -1318,6 +1428,17 @@ PackageLicenseConcluded: Zlib
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-psa_driver CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
+PackageName: UARTDRV Core
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-uartdrv_core
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: Zlib
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-uartdrv_core CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
 PackageName: Clock Manager Runtime
 SPDXID: SPDXRef-simplicity_sdk-2025.6.2-clock_manager_runtime
 PackageVersion: 2025.6.2
@@ -1902,6 +2023,17 @@ PackageLicenseConcluded: Zlib AND MSLA
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_host_adaptation CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
+PackageName: USART
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-emlib_usart
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: Zlib
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-emlib_usart CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
 PackageName: Bluetooth Low Energy Common Component
 SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_common
 PackageVersion: 2025.6.2
@@ -1966,6 +2098,17 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: MSLA
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_version CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
+PackageName: Scanner Base Feature
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_scanner
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: MSLA
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_scanner CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
 PackageName: CMSIS-RTOS2 Initialization
@@ -2446,59 +2589,15 @@ PackageLicenseConcluded: Zlib
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-gpio CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
-PackageName: IO Stream: RTT
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-iostream_rtt
+PackageName: Scanner for legacy advertisements
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_legacy_scanner
 PackageVersion: 2025.6.2
 PrimaryPackagePurpose: LIBRARY
 PackageDownloadLocation: NOASSERTION
 PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: Zlib
+PackageLicenseConcluded: MSLA
 ## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-iostream_rtt CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: SEGGER RTT
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-segger_rtt
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: Segger
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-segger_rtt CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: GPIOINT
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: Zlib
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: NCP User Commands
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-ncp_btmesh_user_cmd
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: Zlib
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-ncp_btmesh_user_cmd CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: NCP Event Filter Interface
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-ncp_evt_filter
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: Zlib
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-ncp_evt_filter CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_legacy_scanner CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
 PackageName: NCP Interface
@@ -2512,15 +2611,15 @@ PackageLicenseConcluded: Zlib
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-ncp CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
-PackageName: UARTDRV Core
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-uartdrv_core
+PackageName: NCP Event Filter Interface
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-ncp_evt_filter
 PackageVersion: 2025.6.2
 PrimaryPackagePurpose: LIBRARY
 PackageDownloadLocation: NOASSERTION
 PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: Zlib
 ## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-uartdrv_core CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-ncp_evt_filter CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
 PackageName: Bluetooth NCP Transport over USART
@@ -2532,17 +2631,6 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: Zlib
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_ncp_transport_usart CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: USART
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-emlib_usart
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: Zlib
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-emlib_usart CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
 PackageName: Application Queue
@@ -2565,91 +2653,3 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: Zlib
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-app_rta CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: Extended Advertising
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_advertiser
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: MSLA
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_advertiser CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: Scanner for extended advertisements
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_scanner
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: MSLA
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_extended_scanner CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: Scanner Base Feature
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_scanner
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: MSLA
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_scanner CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: Periodic Advertising
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_periodic_advertiser
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: Zlib AND MSLA
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_periodic_advertiser CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: Periodic Advertising Synchronization
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sync
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: Zlib AND MSLA
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_sync CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: Dynamic GATT Database
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_dynamic_gattdb
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: Zlib AND MSLA
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_dynamic_gattdb CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: Direct Test Mode
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_test
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: MSLA
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_test CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: UARTDRV USART
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-uartdrv_usart
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: Zlib
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-uartdrv_usart CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2

@@ -35,12 +35,12 @@
 #include "app_assert.h"
 #include "app_proprietary.h"
 #include "sl_component_catalog.h"
-#ifdef SL_CATALOG_FLEX_IEEE802154_SUPPORT_PRESENT
-#include "sl_flex_util_802154_protocol_types.h"
-#include "sl_flex_util_802154_init_config.h"
-#include "sl_flex_rail_ieee802154_config.h"
-#include "sl_flex_ieee802154_support.h"
-#include "sl_flex_util_802154_init.h"
+#ifdef SL_CATALOG_RAIL_SDK_IEEE802154_SUPPORT_PRESENT
+#include "sl_rail_sdk_util_802154_protocol_types.h"
+#include "sl_rail_sdk_util_802154_init_config.h"
+#include "sl_rail_sdk_ieee802154_config.h"
+#include "sl_rail_sdk_ieee802154_support.h"
+#include "sl_rail_sdk_util_802154_init.h"
 #elif defined SL_CATALOG_FLEX_BLE_SUPPORT_PRESENT
 #include "sl_flex_util_ble_protocol_config.h"
 #include "sl_flex_util_ble_init_config.h"
@@ -76,8 +76,8 @@ TaskHandle_t app_proprietary_task_handle;
 EventGroupHandle_t app_proprietary_event_group_handle;
 StaticEventGroup_t app_proprietary_event_group_buffer;
 
-static uint8_t rxData[SL_FLEX_RAIL_FRAME_MAX_SIZE];
-static uint8_t txData[SL_FLEX_RAIL_FRAME_MAX_SIZE];
+static uint8_t rxData[SL_RAIL_SDK_FRAME_MAX_SIZE];
+static uint8_t txData[SL_RAIL_SDK_FRAME_MAX_SIZE];
 #if CCA_ENABLE
 RAIL_CsmaConfig_t csmaConfig = RAIL_CSMA_CONFIG_802_15_4_2003_2p4_GHz_OQPSK_CSMA;
 #endif
@@ -198,7 +198,7 @@ static void app_proprietary_task(void *p_arg)
       // operations and slipTime has a reasonable default for relative operations.
       rxSchedulerInfo = (RAIL_SchedulerInfo_t){ .priority = 200 };
 
-      rail_handle = sl_flex_util_get_handle();
+      rail_handle = sl_rail_sdk_util_get_handle();
 #ifdef SL_CATALOG_FLEX_IEEE802154_SUPPORT_PRESENT
       // init the selected protocol for IEEE, first
       sl_flex_ieee802154_protocol_init(rail_handle, SL_FLEX_UTIL_INIT_PROTOCOL_INSTANCE_DEFAULT);
@@ -224,7 +224,7 @@ static void app_proprietary_task(void *p_arg)
     if (event_bits & APP_PROPRIETARY_EVENT_MAGIC_DEINIT_FLAG )
     {
       app_log("Disabling 15.4 RX packet\n");
-      rail_handle = sl_flex_util_get_handle();
+      rail_handle = sl_rail_sdk_util_get_handle();
       RAIL_Idle(rail_handle, RAIL_IDLE_ABORT, true);
 
     }
@@ -240,14 +240,14 @@ static void app_proprietary_task(void *p_arg)
        txSchedulerInfo.slipTime = 4300; // BLE ATT max size is 512, @1Mbps will be 4096us over the air . We allow our packet to slip after one
        txSchedulerInfo.transactionTime = 1000; // our packet currently is 12 bytes at 250kbps, whic is ~400us.
 
-       rail_handle =  sl_flex_util_get_handle();
+       rail_handle =  sl_rail_sdk_util_get_handle();
        uint32_t bytesWritten = RAIL_WriteTxFifo(rail_handle, txData, txData[0], true);
        if(bytesWritten != 0)
        {
 #if CCA_ENABLE
          status = RAIL_StartCcaCsmaTx(rail_handle, sl_flex_ieee802154_get_channel(), TX_OPTIONS, &csmaConfig, (const RAIL_SchedulerInfo_t *)&txSchedulerInfo);
 #else
-         status = RAIL_StartTx(rail_handle, sl_flex_ieee802154_get_channel(), TX_OPTIONS, (const RAIL_SchedulerInfo_t *)&txSchedulerInfo);
+         status = RAIL_StartTx(rail_handle, sl_rail_sdk_ieee802154_get_channel(), TX_OPTIONS, (const RAIL_SchedulerInfo_t *)&txSchedulerInfo);
          app_log("Transmit requested status : 0x%X\n", status);
 #endif //#if CCA_ENABLE
        }
