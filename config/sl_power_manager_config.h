@@ -57,6 +57,22 @@
 #define SL_POWER_MANAGER_DEBUG_POOL_SIZE  10
 // </e>
 
+// <o SL_POWER_MANAGER_INIT_EMU_EM4_PIN_RETENTION_MODE> Pin retention mode
+// <i>
+// <EMU_EM4CTRL_EM4IORETMODE_DISABLE=> No retention
+// <EMU_EM4CTRL_EM4IORETMODE_EM4EXIT=> Retention through EM4
+// <EMU_EM4CTRL_EM4IORETMODE_SWUNLATCH=> Retention through EM4 and wakeup
+// <d> power_manager_pin_retention_disable
+#define SL_POWER_MANAGER_INIT_EMU_EM4_PIN_RETENTION_MODE EMU_EM4CTRL_EM4IORETMODE_DISABLE
+
+// <e SL_POWER_MANAGER_INIT_EMU_EM2_DEBUG_ENABLE > Enable EM2 debugging feature
+// <i> Enable or disable debugging features.
+// <i> Force PD0B/PD0D to stay on during EM2 entry. This allows the debugger to remain connected in EM2 and EM3.
+// <i> Enabling debug connectivity results in an increased power consumption in EM2/EM3.
+// <i> Default: 1
+#define SL_POWER_MANAGER_INIT_EMU_EM2_DEBUG_ENABLE 1
+// </e>
+
 // </h>
 
 #endif /* SL_POWER_MANAGER_CONFIG_H */

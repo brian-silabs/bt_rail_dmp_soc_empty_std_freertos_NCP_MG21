@@ -37,6 +37,20 @@
 // <i> Enables Assert.
 #define APP_ASSERT_ENABLE      1
 
+// <q APP_ASSERT_SCHEDULE_LOCK> Enable schedule lock
+// <i> Enables schedule locking under OS
+// <i> When both schedule lock and breakpoint are present,
+// <i> breakpoint will be used
+#define APP_ASSERT_SCHEDULE_LOCK      0
+
+// <q APP_ASSERT_BREAKPOINT> Enable breakpoint insertion
+// <i> Inserts breakpoint to assert locations, which can halt the application
+// <i> upon failure. While debugging this feature stops the execution
+// <i> and jumps to the location of the assertion in case it fails.
+// <i> When both schedule lock and breakpoint are present,
+// <i> breakpoint will be used
+#define APP_ASSERT_BREAKPOINT      1
+
 // <e APP_ASSERT_LOG_ENABLE> Logging
 // <i> Enables logging for assert.
 #define APP_ASSERT_LOG_ENABLE      1

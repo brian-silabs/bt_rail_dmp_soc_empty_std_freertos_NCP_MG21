@@ -20,6 +20,21 @@ extern const sli_bt_gattdb_t gattdb;
 #define gattdb_hardware_revision_string       20
 #define gattdb_firmware_revision_string       22
 #define gattdb_system_id                      24
+#define gattdb_ota                            25
+#define gattdb_ota_control                    27
+
+#define gattdb_generic_attribute_len          2
+#define gattdb_service_changed_char_len       4
+#define gattdb_database_hash_len              16
+#define gattdb_client_support_features_len    1
+#define gattdb_device_name_len                21
+#define gattdb_device_information_len         2
+#define gattdb_manufacturer_name_string_len   12
+#define gattdb_model_number_string_len        10
+#define gattdb_hardware_revision_string_len   5
+#define gattdb_firmware_revision_string_len   8
+#define gattdb_system_id_len                  8
+#define gattdb_ota_len                        16
 
 
 #endif // __GATT_DB_H

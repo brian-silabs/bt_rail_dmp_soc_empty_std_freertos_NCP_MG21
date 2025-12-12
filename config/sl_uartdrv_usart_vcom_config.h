@@ -98,7 +98,7 @@
 
 // USART0 TX on PA05
 #ifndef SL_UARTDRV_USART_VCOM_TX_PORT           
-#define SL_UARTDRV_USART_VCOM_TX_PORT            gpioPortA
+#define SL_UARTDRV_USART_VCOM_TX_PORT            SL_GPIO_PORT_A
 #endif
 #ifndef SL_UARTDRV_USART_VCOM_TX_PIN            
 #define SL_UARTDRV_USART_VCOM_TX_PIN             5
@@ -106,7 +106,7 @@
 
 // USART0 RX on PA06
 #ifndef SL_UARTDRV_USART_VCOM_RX_PORT           
-#define SL_UARTDRV_USART_VCOM_RX_PORT            gpioPortA
+#define SL_UARTDRV_USART_VCOM_RX_PORT            SL_GPIO_PORT_A
 #endif
 #ifndef SL_UARTDRV_USART_VCOM_RX_PIN            
 #define SL_UARTDRV_USART_VCOM_RX_PIN             6
@@ -114,7 +114,7 @@
 
 // USART0 CTS on PA04
 #ifndef SL_UARTDRV_USART_VCOM_CTS_PORT          
-#define SL_UARTDRV_USART_VCOM_CTS_PORT           gpioPortA
+#define SL_UARTDRV_USART_VCOM_CTS_PORT           SL_GPIO_PORT_A
 #endif
 #ifndef SL_UARTDRV_USART_VCOM_CTS_PIN           
 #define SL_UARTDRV_USART_VCOM_CTS_PIN            4
@@ -122,7 +122,7 @@
 
 // USART0 RTS on PC01
 #ifndef SL_UARTDRV_USART_VCOM_RTS_PORT          
-#define SL_UARTDRV_USART_VCOM_RTS_PORT           gpioPortC
+#define SL_UARTDRV_USART_VCOM_RTS_PORT           SL_GPIO_PORT_C
 #endif
 #ifndef SL_UARTDRV_USART_VCOM_RTS_PIN           
 #define SL_UARTDRV_USART_VCOM_RTS_PIN            1

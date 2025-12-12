@@ -31,8 +31,6 @@
 #ifndef SL_RAIL_UTIL_PTI_CONFIG_H
 #define SL_RAIL_UTIL_PTI_CONFIG_H
 
-#include "rail_types.h"
-
 // <<< Use Configuration Wizard in Context Menu >>>
 // <h> PTI Configuration
 
@@ -61,7 +59,7 @@
 
 // PTI DOUT on PC04
 #ifndef SL_RAIL_UTIL_PTI_DOUT_PORT              
-#define SL_RAIL_UTIL_PTI_DOUT_PORT               gpioPortC
+#define SL_RAIL_UTIL_PTI_DOUT_PORT               SL_GPIO_PORT_C
 #endif
 #ifndef SL_RAIL_UTIL_PTI_DOUT_PIN               
 #define SL_RAIL_UTIL_PTI_DOUT_PIN                4
@@ -69,7 +67,7 @@
 
 // PTI DFRAME on PC05
 #ifndef SL_RAIL_UTIL_PTI_DFRAME_PORT            
-#define SL_RAIL_UTIL_PTI_DFRAME_PORT             gpioPortC
+#define SL_RAIL_UTIL_PTI_DFRAME_PORT             SL_GPIO_PORT_C
 #endif
 #ifndef SL_RAIL_UTIL_PTI_DFRAME_PIN             
 #define SL_RAIL_UTIL_PTI_DFRAME_PIN              5

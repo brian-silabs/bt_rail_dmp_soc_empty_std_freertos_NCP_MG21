@@ -11,7 +11,7 @@ static UARTDRV_Handle_t sli_uartdrv_default_handle = NULL;
 
 /* If CTS and RTS not defined, define a default value to avoid errors */
 #ifndef SL_UARTDRV_USART_VCOM_CTS_PORT
-#define SL_UARTDRV_USART_VCOM_CTS_PORT  gpioPortA
+#define SL_UARTDRV_USART_VCOM_CTS_PORT  SL_GPIO_PORT_A
 #define SL_UARTDRV_USART_VCOM_CTS_PIN   0
 #if defined(_USART_ROUTELOC1_MASK)
 #define SL_UARTDRV_USART_VCOM_CTS_LOC   0
@@ -19,7 +19,7 @@ static UARTDRV_Handle_t sli_uartdrv_default_handle = NULL;
 #endif
 
 #ifndef SL_UARTDRV_USART_VCOM_RTS_PORT
-#define SL_UARTDRV_USART_VCOM_RTS_PORT  gpioPortA
+#define SL_UARTDRV_USART_VCOM_RTS_PORT  SL_GPIO_PORT_A
 #define SL_UARTDRV_USART_VCOM_RTS_PIN   0
 #if defined(_USART_ROUTELOC1_MASK)
 #define SL_UARTDRV_USART_VCOM_RTS_LOC   0

@@ -68,6 +68,26 @@
 // <i> higher data throughput over connections, advertising or scanning long advertisement data.
 #define SL_BT_CONFIG_BUFFER_SIZE    (3150)
 
+// <e SL_BT_CONFIG_SET_CUSTOM_ADDRESS_FROM_NVM3> Enable using a custom Bluetooth address stored in NVM3
+// <i> Enable or disable using a custom Bluetooth address stored the Bluetooth space of NVM3. When enabled,
+// <i> the Bluetooth stack sets the address as the Bluetooth identity address of the device if a valid address
+// <i> is found in NVM3.
+// <i> Default: 1
+#define SL_BT_CONFIG_SET_CUSTOM_ADDRESS_FROM_NVM3  (1)
+// </e>
+
+// <e SL_BT_CONFIG_SET_CTUNE_FROM_NVM3> Enable setting the HFXO CTUNE with a value stored in the Bluetooth space of NVM3.
+// <i> Enable or disable setting the HFXO CTUNE with a value stored in the Bluetooth space of NVM3. When enabled, the
+// <i> Bluetooth stack sets the HFXO CTUNE at Bluetooth starting phase if a CTUNE value is found in NVM3. This
+// <i> operation will override the CTUNE that is set to with the value stored in the MFG_CTUNE token or the
+// <i> configuration value in the Clock Manager.
+// <i> Setting the HFXO CTUNE with this method is deprecated. Currently the functionality is provided for keeping
+// <i> backwards compatibility with legacy SDKs, and the support will be discontinued in future SDK releases.
+// <i> The recommended method is to store CTUNE value in the MFG_CTUNE token.
+// <i> Default: 0
+#define SL_BT_CONFIG_SET_CTUNE_FROM_NVM3  (0)
+// </e>
+
 // </h> End Bluetooth Stack Configuration
 
 // <h> TX Power Levels
@@ -131,31 +151,29 @@
 #endif // SL_COMPONENT_CATALOG_PRESENT
 
 #ifdef SL_CATALOG_KERNEL_PRESENT
-void sli_bt_rtos_ll_callback();
-void sli_bt_rtos_stack_callback();
   #define SL_BT_CONFIG_FLAGS         (SL_BT_CONFIG_FLAG_RTOS | BT_EM2_LFCLK_REQ_FLAG)
-  #define SL_BT_CONFIG_LL_CALLBACK    sli_bt_rtos_ll_callback
-  #define SL_BT_CONFIG_STACK_CALLBACK sli_bt_rtos_stack_callback
 #else
   #define SL_BT_CONFIG_FLAGS          (BT_EM2_LFCLK_REQ_FLAG)
-  #define SL_BT_CONFIG_LL_CALLBACK    0
-  #define SL_BT_CONFIG_STACK_CALLBACK 0
 #endif // SL_CATALOG_KERNEL_PRESENT
 
 #include "sl_bt_stack_config.h"
+#include "sl_bgapi_config.h" // For SL_BGAPI_MAX_PAYLOAD_SIZE
 
+// NOTE: Struct sl_btctrl_ll_priorities is deprecated in Simplicity SDK Suite v2025.6.0 and marked for removal in a future release.
+// The Link Layer scheduler priority configuration is initialized via the Bluetooth Low Energy Controller component.
 #define SL_BT_CONFIG_DEFAULT                                 \
   {                                                          \
     .config_flags = SL_BT_CONFIG_FLAGS,                      \
     .bluetooth.max_buffer_memory = SL_BT_CONFIG_BUFFER_SIZE, \
-    .scheduler_callback = SL_BT_CONFIG_LL_CALLBACK,          \
-    .stack_schedule_callback = SL_BT_CONFIG_STACK_CALLBACK,  \
+    .scheduler_callback = NULL,                              \
+    .stack_schedule_callback = NULL,                         \
     .gattdb = &gattdb,                                       \
     .max_timers = SL_BT_CONFIG_MAX_SOFTWARE_TIMERS,          \
     .rf.tx_gain = SL_BT_CONFIG_RF_PATH_GAIN_TX,              \
     .rf.rx_gain = SL_BT_CONFIG_RF_PATH_GAIN_RX,              \
     .rf.tx_min_power = SL_BT_CONFIG_MIN_TX_POWER,            \
     .rf.tx_max_power = SL_BT_CONFIG_MAX_TX_POWER,            \
+    .max_bgapi_payload_size = SL_BGAPI_MAX_PAYLOAD_SIZE,     \
   }
 
 #endif // SL_BLUETOOTH_CONFIG_H
