@@ -697,10 +697,6 @@
           <folder name="gatt_service_device_information_override">
             <file name="sl_gatt_service_device_information_override.h" linked="false" uri="studio:/sdk/app/bluetooth/common/gatt_service_device_information_override/sl_gatt_service_device_information_override.h"/>
           </folder>
-          <folder name="in_place_ota_dfu">
-            <file name="sl_bt_in_place_ota_dfu.c" linked="false" uri="studio:/sdk/app/bluetooth/common/in_place_ota_dfu/sl_bt_in_place_ota_dfu.c"/>
-            <file name="sl_bt_in_place_ota_dfu.h" linked="false" uri="studio:/sdk/app/bluetooth/common/in_place_ota_dfu/sl_bt_in_place_ota_dfu.h"/>
-          </folder>
           <folder name="ncp">
             <file name="sl_ncp.c" linked="false" uri="studio:/sdk/app/bluetooth/common/ncp/sl_ncp.c"/>
             <file name="sli_ncp_sync_freertos.c" linked="false" uri="studio:/sdk/app/bluetooth/common/ncp/sli_ncp_sync_freertos.c"/>
@@ -734,23 +730,7 @@
     </folder>
     <folder name="protocol">
       <folder name="bluetooth">
-        <folder name="src">
-          <file name="sl_apploader_util_s2.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sl_apploader_util_s2.c"/>
-          <file name="sli_bt_advertiser_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_advertiser_config.c"/>
-          <file name="sli_bt_connection_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_connection_config.c"/>
-          <file name="sli_bt_dynamic_gattdb_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_dynamic_gattdb_config.c"/>
-          <file name="sli_bt_l2cap_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_l2cap_config.c"/>
-          <file name="sli_bt_pawr_advertiser_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_pawr_advertiser_config.c"/>
-          <file name="sli_bt_periodic_advertiser_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_periodic_advertiser_config.c"/>
-          <file name="sli_bt_sync_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_sync_config.c"/>
-          <file name="sli_bt_accept_list_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_accept_list_config.c"/>
-          <file name="sli_bt_external_bondingdb_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_external_bondingdb_config.c"/>
-          <file name="sli_bt_host_adaptation.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_host_adaptation.c"/>
-          <file name="sl_bt_rtos_adaptation.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sl_bt_rtos_adaptation.c"/>
-          <file name="sl_bt_stack_init.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sl_bt_stack_init.c"/>
-        </folder>
         <folder name="inc">
-          <file name="sl_apploader_util.h" linked="false" uri="studio:/sdk/protocol/bluetooth/inc/sl_apploader_util.h"/>
           <file name="sl_bgapi.h" linked="false" uri="studio:/sdk/protocol/bluetooth/inc/sl_bgapi.h"/>
           <file name="sli_bgapi.h" linked="false" uri="studio:/sdk/protocol/bluetooth/inc/sli_bgapi.h"/>
           <file name="sli_bgapi_rtos_adaptation.h" linked="false" uri="studio:/sdk/protocol/bluetooth/inc/sli_bgapi_rtos_adaptation.h"/>
@@ -796,6 +776,20 @@
               </folder>
             </folder>
           </folder>
+        </folder>
+        <folder name="src">
+          <file name="sli_bt_advertiser_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_advertiser_config.c"/>
+          <file name="sli_bt_connection_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_connection_config.c"/>
+          <file name="sli_bt_dynamic_gattdb_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_dynamic_gattdb_config.c"/>
+          <file name="sli_bt_l2cap_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_l2cap_config.c"/>
+          <file name="sli_bt_pawr_advertiser_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_pawr_advertiser_config.c"/>
+          <file name="sli_bt_periodic_advertiser_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_periodic_advertiser_config.c"/>
+          <file name="sli_bt_sync_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_sync_config.c"/>
+          <file name="sli_bt_accept_list_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_accept_list_config.c"/>
+          <file name="sli_bt_external_bondingdb_config.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_external_bondingdb_config.c"/>
+          <file name="sli_bt_host_adaptation.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sli_bt_host_adaptation.c"/>
+          <file name="sl_bt_rtos_adaptation.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sl_bt_rtos_adaptation.c"/>
+          <file name="sl_bt_stack_init.c" linked="false" uri="studio:/sdk/protocol/bluetooth/src/sl_bt_stack_init.c"/>
         </folder>
         <folder name="bgstack">
           <folder name="ll">
@@ -1197,8 +1191,8 @@
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/app/common/util/app_rta/inc/rtos"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/app/common/util/app_timer"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/app/common/util/app_timer/freertos"/>
-  <includePath uri="studio:/project/simplicity_sdk_2025.6.2/protocol/bluetooth/inc"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/platform/common/inc"/>
+  <includePath uri="studio:/project/simplicity_sdk_2025.6.2/protocol/bluetooth/inc"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/protocol/bluetooth/bgcommon/inc"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/protocol/bluetooth/bgstack/ll/inc"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/app/bluetooth/common/ncp_transport"/>
@@ -1224,7 +1218,6 @@
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/platform/driver/gpio/inc"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/platform/emdrv/gpiointerrupt/inc"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/platform/peripheral/inc"/>
-  <includePath uri="studio:/project/simplicity_sdk_2025.6.2/app/bluetooth/common/in_place_ota_dfu"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/platform/service/interrupt_manager/inc"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/platform/service/interrupt_manager/src"/>
   <includePath uri="studio:/project/simplicity_sdk_2025.6.2/platform/service/interrupt_manager/inc/arm"/>
@@ -1274,7 +1267,6 @@
   <macroDefinition name="EFR32MG21A020F1024IM32"/>
   <macroDefinition name="SL_CODE_COMPONENT_SYSTEM" value="system"/>
   <macroDefinition name="SL_APP_PROPERTIES"/>
-  <macroDefinition name="BOOTLOADER_APPLOADER" value="1"/>
   <macroDefinition name="SL_BOARD_NAME" value="&quot;BRD4002A&quot;"/>
   <macroDefinition name="SL_BOARD_REV" value="&quot;A07&quot;"/>
   <macroDefinition name="HARDWARE_BOARD_DEFAULT_RF_BAND_2400"/>

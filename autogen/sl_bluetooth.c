@@ -33,7 +33,6 @@
 #include "sl_assert.h"
 #include "sl_bt_stack_init.h"
 #include "sl_component_catalog.h"
-#include "sl_bt_in_place_ota_dfu.h"
 #include "sl_gatt_service_device_information_override.h"
 
 void sl_bt_init(void)
@@ -53,7 +52,6 @@ SL_WEAK void sl_bt_on_event(sl_bt_msg_t* evt)
 
 void sl_bt_process_event(sl_bt_msg_t *evt)
 {
-  sl_bt_in_place_ota_dfu_on_event(evt);
   sl_gatt_service_device_information_override_on_event(evt);
   sl_bt_on_event(evt);
 }

@@ -3,7 +3,7 @@
   "specVersion" : "1.6",
   "version" : 1,
   "metadata" : {
-    "timestamp" : "2025-12-12T16:21:32Z",
+    "timestamp" : "2025-12-12T16:29:05Z",
     "authors" : [ {
       "name" : "Silicon Laboratories, Inc."
     } ],
@@ -286,18 +286,6 @@
       "type" : "library",
       "bom-ref" : "simplicity_sdk:2025.6.2:gpiointerrupt",
       "name" : "GPIOINT",
-      "version" : "2025.6.2",
-      "supplier" : {
-        "name" : "Silicon Laboratories, Inc."
-      },
-      "licenses" : [ {
-        "expression" : "Zlib"
-      } ]
-    }, {
-      "scope" : "required",
-      "type" : "library",
-      "bom-ref" : "simplicity_sdk:2025.6.2:in_place_ota_dfu",
-      "name" : "In-Place OTA DFU",
       "version" : "2025.6.2",
       "supplier" : {
         "name" : "Silicon Laboratories, Inc."
@@ -1858,18 +1846,6 @@
     }, {
       "scope" : "required",
       "type" : "library",
-      "bom-ref" : "simplicity_sdk:2025.6.2:bootloader_app_properties",
-      "name" : "App Properties",
-      "version" : "2025.6.2",
-      "supplier" : {
-        "name" : "Silicon Laboratories, Inc."
-      },
-      "licenses" : [ {
-        "expression" : "Zlib"
-      } ]
-    }, {
-      "scope" : "required",
-      "type" : "library",
       "bom-ref" : "simplicity_sdk:2025.6.2:emlib_msc",
       "name" : "MSC",
       "version" : "2025.6.2",
@@ -1878,18 +1854,6 @@
       },
       "licenses" : [ {
         "expression" : "Zlib"
-      } ]
-    }, {
-      "scope" : "required",
-      "type" : "library",
-      "bom-ref" : "simplicity_sdk:2025.6.2:bootloader_interface_s2",
-      "name" : "Bootloader Application Interface Series 2",
-      "version" : "2025.6.2",
-      "supplier" : {
-        "name" : "Silicon Laboratories, Inc."
-      },
-      "licenses" : [ {
-        "expression" : "MSLA"
       } ]
     }, {
       "scope" : "required",
@@ -1992,18 +1956,6 @@
       "type" : "library",
       "bom-ref" : "simplicity_sdk:2025.6.2:bluetooth_controller_rtos_adaptation",
       "name" : "Bluetooth Core",
-      "version" : "2025.6.2",
-      "supplier" : {
-        "name" : "Silicon Laboratories, Inc."
-      },
-      "licenses" : [ {
-        "expression" : "MSLA"
-      } ]
-    }, {
-      "scope" : "required",
-      "type" : "library",
-      "bom-ref" : "simplicity_sdk:2025.6.2:apploader",
-      "name" : "AppLoader Support for Applications",
       "version" : "2025.6.2",
       "supplier" : {
         "name" : "Silicon Laboratories, Inc."
@@ -2428,18 +2380,6 @@
     }, {
       "scope" : "required",
       "type" : "library",
-      "bom-ref" : "simplicity_sdk:2025.6.2:bootloader_interface",
-      "name" : "Bootloader Application Interface",
-      "version" : "2025.6.2",
-      "supplier" : {
-        "name" : "Silicon Laboratories, Inc."
-      },
-      "licenses" : [ {
-        "expression" : "MSLA"
-      } ]
-    }, {
-      "scope" : "required",
-      "type" : "library",
       "bom-ref" : "simplicity_sdk:2025.6.2:mbedtls_platform_dynamic_memory_allocation_config_default",
       "name" : "Default dynamic memory allocation macros for mbedtls",
       "version" : "2025.6.2",
@@ -2578,18 +2518,6 @@
       },
       "licenses" : [ {
         "expression" : "Zlib"
-      } ]
-    }, {
-      "scope" : "required",
-      "type" : "library",
-      "bom-ref" : "simplicity_sdk:2025.6.2:apploader_util",
-      "name" : "AppLoader Utility",
-      "version" : "2025.6.2",
-      "supplier" : {
-        "name" : "Silicon Laboratories, Inc."
-      },
-      "licenses" : [ {
-        "expression" : "MSLA"
       } ]
     }, {
       "scope" : "required",
@@ -2753,6 +2681,42 @@
       },
       "licenses" : [ {
         "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "simplicity_sdk:2025.6.2:bootloader_interface",
+      "name" : "Bootloader Application Interface",
+      "version" : "2025.6.2",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "MSLA"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "simplicity_sdk:2025.6.2:bootloader_app_properties",
+      "name" : "App Properties",
+      "version" : "2025.6.2",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "Zlib"
+      } ]
+    }, {
+      "scope" : "required",
+      "type" : "library",
+      "bom-ref" : "simplicity_sdk:2025.6.2:bootloader_interface_s2",
+      "name" : "Bootloader Application Interface Series 2",
+      "version" : "2025.6.2",
+      "supplier" : {
+        "name" : "Silicon Laboratories, Inc."
+      },
+      "licenses" : [ {
+        "expression" : "MSLA"
       } ]
     } ]
   } ]

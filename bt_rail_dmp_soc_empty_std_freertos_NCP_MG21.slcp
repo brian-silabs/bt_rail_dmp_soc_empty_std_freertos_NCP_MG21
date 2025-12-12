@@ -48,6 +48,7 @@ component:
 - {id: bluetooth_feature_system}
 - {id: bluetooth_feature_test}
 - {id: bluetooth_stack}
+- {id: bootloader_interface}
 - {id: brd4002a}
 - {id: brd4180a}
 - {id: clock_manager}
@@ -56,7 +57,6 @@ component:
 - {id: gatt_configuration}
 - {id: gatt_service_device_information_override}
 - {id: gpiointerrupt}
-- {id: in_place_ota_dfu}
 - {id: iostream_rtt}
 - {id: mpu}
 - {id: ncp}

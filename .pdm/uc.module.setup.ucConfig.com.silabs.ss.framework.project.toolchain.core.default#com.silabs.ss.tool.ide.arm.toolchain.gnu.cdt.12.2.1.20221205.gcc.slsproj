@@ -3,7 +3,6 @@
   <folder name="config">
     <folder name="btconf">
       <file name="gatt_configuration.btconf" generated="true" linked="false"/>
-      <file name="in_place_ota_dfu.xml" generated="true" linked="false"/>
     </folder>
     <file name="app_assert_config.h" generated="true" linked="false"/>
     <file name="sl_bt_dynamic_gattdb_config.h" generated="true" linked="false"/>
@@ -13,7 +12,6 @@
     <file name="sl_clock_manager_oscillator_config.h" generated="true" linked="false"/>
     <file name="sl_clock_manager_tree_config.h" generated="true" linked="false"/>
     <file name="FreeRTOSConfig.h" generated="true" linked="false"/>
-    <file name="sl_bt_in_place_ota_dfu_config.h" generated="true" linked="false"/>
     <file name="sl_main_start_task_config.h" generated="true" linked="false"/>
     <file name="sl_rail_sdk_ieee802154_config.h" generated="true" linked="false"/>
     <file name="sl_rail_sdk_util_802154_init_config.h" generated="true" linked="false"/>
@@ -38,7 +36,6 @@
     <file name="sl_btctrl_scheduler_priority_config.h" generated="true" linked="false"/>
     <file name="sl_bluetooth_connection_config.h" generated="true" linked="false"/>
     <file name="sl_memory_manager_region_config.h" generated="true" linked="false"/>
-    <file name="app_properties_config.h" generated="true" linked="false"/>
     <file name="sl_bluetooth_advertiser_config.h" generated="true" linked="false"/>
     <file name="sl_debug_swo_config.h" generated="true" linked="false"/>
     <file name="sl_bt_host_adaptation_config.h" generated="true" linked="false"/>
@@ -46,7 +43,6 @@
     <file name="sl_rail_util_pa_config.h" generated="true" linked="false"/>
     <file name="sl_rail_util_rf_path_config.h" generated="true" linked="false"/>
     <file name="sl_core_config.h" generated="true" linked="false"/>
-    <file name="btl_interface_cfg.h" generated="true" linked="false"/>
     <file name="sl_sleeptimer_config.h" generated="true" linked="false"/>
     <file name="sl_mbedtls_config.h" generated="true" linked="false"/>
     <file name="sl_mbedtls_device_config.h" generated="true" linked="false"/>
@@ -54,6 +50,9 @@
     <file name="sl_ncp_config.h" generated="true" linked="false"/>
     <file name="sl_ncp_evt_filter_config.h" generated="true" linked="false"/>
     <file name="sl_bt_ncp_transport_usart_config.h" generated="true" linked="false"/>
+    <file name="btl_interface_cfg.h" generated="true" linked="false"/>
+    <file name="btl_interface_cfg_s2c1.h" generated="true" linked="false"/>
+    <file name="app_properties_config.h" generated="true" linked="false"/>
   </folder>
   <includePath uri="studio:/project/config"/>
   <includePath uri="studio:/project/config/btconf"/>

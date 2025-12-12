@@ -13,7 +13,7 @@ DocumentNamespace: https://silabs.com
 
 ## Creation Information
 Creator: Organization: Silicon Laboratories, Inc.
-Created: 2025-12-12T16:21:32Z
+Created: 2025-12-12T16:29:05Z
 ## Relationships
 Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-simplicity_sdk-2025.6.2
 
@@ -46,7 +46,6 @@ Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-20
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-gatt_configuration
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-gatt_service_device_information_override
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-in_place_ota_dfu
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-iostream_rtt
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-mpu
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-rail_lib_multiprotocol
@@ -157,9 +156,7 @@ Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-20
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-event_handler
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_connection
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-memory_manager_region
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bootloader_app_properties
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-emlib_msc
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface_s2
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_advertiser
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-device_i2c
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-sli_crypto
@@ -169,7 +166,6 @@ Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-20
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-interrupt_manager_cortexm
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-rail_util_features
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_controller_rtos_adaptation
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-apploader
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-sl_rail_util_callbacks
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_host_adaptation
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-emlib_usart
@@ -198,7 +194,6 @@ Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-20
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-sl_core
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-rail_util_built_in_phys
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-iostream_stdlib_config
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-mbedtls_platform_dynamic_memory_allocation_config_default
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-hal_syscfg
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-cmsis_core
@@ -206,7 +201,6 @@ Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-20
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-emlib_timer
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-psa_crypto_common
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-sleeptimer
-Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-apploader_util
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-sl_common
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-mbedtls_config
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-rail_util_callbacks
@@ -219,6 +213,9 @@ Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-20
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bluetooth_ncp_transport_usart
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-app_queue
 Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-app_rta
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bootloader_app_properties
+Relationship: SPDXRef-simplicity_sdk-2025.6.2 CONTAINS SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface_s2
 
 ## Package Information
 PackageName: EFR32MG21A020F1024IM32
@@ -465,17 +462,6 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: Zlib
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: In-Place OTA DFU
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-in_place_ota_dfu
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: Zlib
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-in_place_ota_dfu CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
 PackageName: IO Stream: RTT
@@ -1858,17 +1844,6 @@ PackageLicenseConcluded: Zlib
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-memory_manager_region CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
-PackageName: App Properties
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bootloader_app_properties
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: Zlib
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-bootloader_app_properties CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
 PackageName: MSC
 SPDXID: SPDXRef-simplicity_sdk-2025.6.2-emlib_msc
 PackageVersion: 2025.6.2
@@ -1878,17 +1853,6 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: Zlib
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-emlib_msc CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: Bootloader Application Interface Series 2
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface_s2
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: MSLA
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface_s2 CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
 PackageName: Advertising Base Feature
@@ -1988,17 +1952,6 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: MSLA
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-bluetooth_controller_rtos_adaptation CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: AppLoader Support for Applications
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-apploader
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: MSLA
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-apploader CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
 PackageName: SL RAIL Utility, Callbacks
@@ -2367,17 +2320,6 @@ PackageLicenseConcluded: Zlib
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-iostream_stdlib_config CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
-PackageName: Bootloader Application Interface
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: MSLA
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
 PackageName: Default dynamic memory allocation macros for mbedtls
 SPDXID: SPDXRef-simplicity_sdk-2025.6.2-mbedtls_platform_dynamic_memory_allocation_config_default
 PackageVersion: 2025.6.2
@@ -2496,17 +2438,6 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: Zlib
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-sleeptimer CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
-
-## Package Information
-PackageName: AppLoader Utility
-SPDXID: SPDXRef-simplicity_sdk-2025.6.2-apploader_util
-PackageVersion: 2025.6.2
-PrimaryPackagePurpose: LIBRARY
-PackageDownloadLocation: NOASSERTION
-PackageSupplier: Organization: Silicon Laboratories, Inc.
-PackageLicenseConcluded: MSLA
-## Relationships
-Relationship: SPDXRef-simplicity_sdk-2025.6.2-apploader_util CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
 
 ## Package Information
 PackageName: Common Functions
@@ -2653,3 +2584,36 @@ PackageSupplier: Organization: Silicon Laboratories, Inc.
 PackageLicenseConcluded: Zlib
 ## Relationships
 Relationship: SPDXRef-simplicity_sdk-2025.6.2-app_rta CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
+PackageName: Bootloader Application Interface
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: MSLA
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
+PackageName: App Properties
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bootloader_app_properties
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: Zlib
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-bootloader_app_properties CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2
+
+## Package Information
+PackageName: Bootloader Application Interface Series 2
+SPDXID: SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface_s2
+PackageVersion: 2025.6.2
+PrimaryPackagePurpose: LIBRARY
+PackageDownloadLocation: NOASSERTION
+PackageSupplier: Organization: Silicon Laboratories, Inc.
+PackageLicenseConcluded: MSLA
+## Relationships
+Relationship: SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface_s2 CONTAINED_BY SPDXRef-simplicity_sdk-2025.6.2

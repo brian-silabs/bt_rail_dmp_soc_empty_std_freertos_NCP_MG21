@@ -7,6 +7,7 @@ app_properties_config.h=-77184399
 btconf/gatt_configuration.btconf=78665094
 btconf/in_place_ota_dfu.xml=-768884898
 btl_interface_cfg.h=664168518
+btl_interface_cfg_s2c1.h=846034576
 dmadrv_config.h=281221886
 nvm3_default_config.h=-1865878923
 psa_crypto_config.h=-499159567

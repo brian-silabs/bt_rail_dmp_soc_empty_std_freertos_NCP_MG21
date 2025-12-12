@@ -5,7 +5,7 @@
   "name" : "Silicon-Laboratories",
   "documentNamespace" : "https://silabs.com",
   "creationInfo" : {
-    "created" : "2025-12-12T16:21:32Z",
+    "created" : "2025-12-12T16:29:05Z",
     "creators" : [ "Tool: Silicon Labs Configuration Tooling" ]
   },
   "comment" : "TERMS OF USE - SILICON LABORATORIES INC.\n(With respect to Silicon Labs software components, this Software Bill of Materials (SBOM) is based upon Silicon Labs'\nreview and analysis of the code version when released.  It is provided \"AS IS\" and does not modify, change or alter\nthe terms or conditions of your use of Silicon Labs' software and/or SDKs based upon license terms and/or agreements\nassociated with this software or SDKs when distributed to you, received by you, or installed by you.  Further, no\nwarranties or obligations are created by this SBOM.  It is your obligation to comply with the terms of licenses\nreferenced in this SBOM.)",
@@ -195,14 +195,6 @@
   }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt",
     "name" : "GPIOINT",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "Zlib"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-in_place_ota_dfu",
-    "name" : "In-Place OTA DFU",
     "versionInfo" : "2025.6.2",
     "primaryPackagePurpose" : "LIBRARY",
     "downloadLocation" : "NOASSERTION",
@@ -1219,14 +1211,6 @@
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib"
   }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bootloader_app_properties",
-    "name" : "App Properties",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "Zlib"
-  }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-emlib_msc",
     "name" : "MSC",
     "versionInfo" : "2025.6.2",
@@ -1234,14 +1218,6 @@
     "downloadLocation" : "NOASSERTION",
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface_s2",
-    "name" : "Bootloader Application Interface Series 2",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "MSLA"
   }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_feature_advertiser",
     "name" : "Advertising Base Feature",
@@ -1309,14 +1285,6 @@
   }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_controller_rtos_adaptation",
     "name" : "Bluetooth Core",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "MSLA"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-apploader",
-    "name" : "AppLoader Support for Applications",
     "versionInfo" : "2025.6.2",
     "primaryPackagePurpose" : "LIBRARY",
     "downloadLocation" : "NOASSERTION",
@@ -1597,14 +1565,6 @@
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib"
   }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface",
-    "name" : "Bootloader Application Interface",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "MSLA"
-  }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-mbedtls_platform_dynamic_memory_allocation_config_default",
     "name" : "Default dynamic memory allocation macros for mbedtls",
     "versionInfo" : "2025.6.2",
@@ -1695,14 +1655,6 @@
     "downloadLocation" : "NOASSERTION",
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib"
-  }, {
-    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-apploader_util",
-    "name" : "AppLoader Utility",
-    "versionInfo" : "2025.6.2",
-    "primaryPackagePurpose" : "LIBRARY",
-    "downloadLocation" : "NOASSERTION",
-    "supplier" : "Organization: Silicon Laboratories, Inc.",
-    "licenseConcluded" : "MSLA"
   }, {
     "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-sl_common",
     "name" : "Common Functions",
@@ -1809,6 +1761,30 @@
     "downloadLocation" : "NOASSERTION",
     "supplier" : "Organization: Silicon Laboratories, Inc.",
     "licenseConcluded" : "Zlib"
+  }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface",
+    "name" : "Bootloader Application Interface",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "MSLA"
+  }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bootloader_app_properties",
+    "name" : "App Properties",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "Zlib"
+  }, {
+    "SPDXID" : "SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface_s2",
+    "name" : "Bootloader Application Interface Series 2",
+    "versionInfo" : "2025.6.2",
+    "primaryPackagePurpose" : "LIBRARY",
+    "downloadLocation" : "NOASSERTION",
+    "supplier" : "Organization: Silicon Laboratories, Inc.",
+    "licenseConcluded" : "MSLA"
   } ],
   "relationships" : [ {
     "spdxElementId" : "SPDXRef-DOCUMENT",
@@ -1901,10 +1877,6 @@
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-gpiointerrupt",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-in_place_ota_dfu",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
@@ -2396,15 +2368,7 @@
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bootloader_app_properties",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-emlib_msc",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface_s2",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
@@ -2441,10 +2405,6 @@
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bluetooth_controller_rtos_adaptation",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-apploader",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
@@ -2576,10 +2536,6 @@
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-mbedtls_platform_dynamic_memory_allocation_config_default",
     "relationshipType" : "CONTAINS"
   }, {
@@ -2617,10 +2573,6 @@
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-sleeptimer",
-    "relationshipType" : "CONTAINS"
-  }, {
-    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
-    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-apploader_util",
     "relationshipType" : "CONTAINS"
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
@@ -2673,6 +2625,18 @@
   }, {
     "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
     "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-app_rta",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bootloader_app_properties",
+    "relationshipType" : "CONTAINS"
+  }, {
+    "spdxElementId" : "SPDXRef-simplicity_sdk-2025.6.2",
+    "relatedSpdxElement" : "SPDXRef-simplicity_sdk-2025.6.2-bootloader_interface_s2",
     "relationshipType" : "CONTAINS"
   } ]
 }
