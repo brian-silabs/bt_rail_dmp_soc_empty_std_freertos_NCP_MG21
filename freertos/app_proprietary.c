@@ -199,9 +199,9 @@ static void app_proprietary_task(void *p_arg)
       rxSchedulerInfo = (RAIL_SchedulerInfo_t){ .priority = 200 };
 
       rail_handle = sl_rail_sdk_util_get_handle();
-#ifdef SL_CATALOG_FLEX_IEEE802154_SUPPORT_PRESENT
+#ifdef SL_CATALOG_RAIL_SDK_IEEE802154_SUPPORT_PRESENT
       // init the selected protocol for IEEE, first
-      sl_flex_ieee802154_protocol_init(rail_handle, SL_FLEX_UTIL_INIT_PROTOCOL_INSTANCE_DEFAULT);
+      sl_rail_sdk_ieee802154_protocol_init(rail_handle, SL_RAIL_SDK_UTIL_INIT_PROTOCOL_INSTANCE_DEFAULT);
 
 
       status = RAIL_IEEE802154_SetPanId(rail_handle, enable->panId, 0);
@@ -209,9 +209,9 @@ static void app_proprietary_task(void *p_arg)
         app_log_error("RAIL_IEEE802154_SetPanId() status: %d failed", status);
       }
 
-      sl_flex_ieee802154_set_channel(enable->channel);
+      sl_rail_sdk_ieee802154_set_channel(enable->channel);// [CUSTOM] helper that does not exist in framework | Migration
       // Start reception.
-      status = RAIL_StartRx(rail_handle, sl_flex_ieee802154_get_channel(), (const RAIL_SchedulerInfo_t *)&rxSchedulerInfo);//Flex deserves a channel setter
+      status = RAIL_StartRx(rail_handle, sl_rail_sdk_ieee802154_get_channel(), (const RAIL_SchedulerInfo_t *)&rxSchedulerInfo);//Flex deserves a channel setter
 #elif defined SL_CATALOG_FLEX_BLE_SUPPORT_PRESENT
       status = RAIL_StartRx(rail_handle, BLE_CHANNEL, NULL);
 #else
